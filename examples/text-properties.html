@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Text Properties – CSS 2: Electric Boogaloo – CSS Learning Hub</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/examples.css">
+    <style>
+        .example-text {
+            --text-demo-bg: #f8f9fa;
+        }
+        
+        .text-demo {
+            margin: var(--space-4) 0;
+            padding: var(--space-3);
+            border-left: 3px solid var(--brand);
+            background: var(--text-demo-bg);
+            border-radius: var(--radius-1);
+        }
+        
+        .text-demo h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+            font-size: var(--fs-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .text-demo p {
+            margin-bottom: var(--space-2);
+        }
+        
+        .font-size-demo .small { font-size: 12px; }
+        .font-size-demo .medium { font-size: 16px; }
+        .font-size-demo .large { font-size: 24px; }
+        .font-size-demo .xlarge { font-size: 32px; }
+        
+        .font-style-demo .normal { font-style: normal; }
+        .font-style-demo .italic { font-style: italic; }
+        .font-style-demo .oblique { font-style: oblique; }
+        
+        .font-weight-demo .light { font-weight: 300; }
+        .font-weight-demo .normal { font-weight: 400; }
+        .font-weight-demo .medium { font-weight: 500; }
+        .font-weight-demo .bold { font-weight: 700; }
+        .font-weight-demo .black { font-weight: 900; }
+        
+        .text-align-demo .left { text-align: left; }
+        .text-align-demo .center { text-align: center; }
+        .text-align-demo .right { text-align: right; }
+        .text-align-demo .justify { text-align: justify; }
+        
+        .text-decoration-demo .none { text-decoration: none; }
+        .text-decoration-demo .underline { text-decoration: underline; }
+        .text-decoration-demo .overline { text-decoration: overline; }
+        .text-decoration-demo .line-through { text-decoration: line-through; }
+        .text-decoration-demo .underline-overline { text-decoration: underline overline; }
+        
+        .letter-spacing-demo .tight { letter-spacing: -0.5px; }
+        .letter-spacing-demo .normal { letter-spacing: normal; }
+        .letter-spacing-demo .wide { letter-spacing: 2px; }
+        .letter-spacing-demo .wider { letter-spacing: 4px; }
+        
+        .text-transform-demo .none { text-transform: none; }
+        .text-transform-demo .uppercase { text-transform: uppercase; }
+        .text-transform-demo .lowercase { text-transform: lowercase; }
+        .text-transform-demo .capitalize { text-transform: capitalize; }
+        
+        .white-space-demo {
+            background: var(--surface);
+            padding: var(--space-3);
+            border-radius: var(--radius-1);
+            margin: var(--space-2) 0;
+            font-family: var(--font-mono);
+            font-size: var(--fs-sm);
+        }
+        
+        .white-space-demo .normal { white-space: normal; }
+        .white-space-demo .nowrap { white-space: nowrap; }
+        .white-space-demo .pre { white-space: pre; }
+        .white-space-demo .pre-wrap { white-space: pre-wrap; }
+        .white-space-demo .pre-line { white-space: pre-line; }
+        
+        .vertical-align-demo {
+            background: var(--surface);
+            padding: var(--space-3);
+            border-radius: var(--radius-1);
+            margin: var(--space-2) 0;
+        }
+        
+        .vertical-align-demo span {
+            background: var(--brand-light);
+            padding: var(--space-1);
+            border-radius: var(--radius-1);
+            margin: 0 var(--space-1);
+        }
+        
+        .vertical-align-demo .baseline { vertical-align: baseline; }
+        .vertical-align-demo .top { vertical-align: top; }
+        .vertical-align-demo .middle { vertical-align: middle; }
+        .vertical-align-demo .bottom { vertical-align: bottom; }
+        .vertical-align-demo .sub { vertical-align: sub; }
+        .vertical-align-demo .super { vertical-align: super; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html">CSS Learning Hub</a></h1>
+            <nav>
+                <a href="../index.html">Home</a> › 
+                <a href="../index.html#css-2">CSS 2: Electric Boogaloo</a> › 
+                Text Properties
+            </nav>
+        </div>
+    </header>
+
+    <main class="container example-text">
+        <section>
+            <h1>Text Properties</h1>
+            <p>Learn how to control typography and text appearance with CSS. These properties allow you to create readable, visually appealing text that enhances user experience and communicates your message effectively.</p>
+        </section>
+
+        <section>
+            <h2>Live Demo</h2>
+            <div class="demo-area">
+                <h3>Font Size</h3>
+                <div class="text-demo font-size-demo">
+                    <h4>font-size</h4>
+                    <p class="small">Small text (12px)</p>
+                    <p class="medium">Medium text (16px)</p>
+                    <p class="large">Large text (24px)</p>
+                    <p class="xlarge">Extra large text (32px)</p>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Font Style</h3>
+                <div class="text-demo font-style-demo">
+                    <h4>font-style</h4>
+                    <p class="normal">Normal text style</p>
+                    <p class="italic">Italic text style</p>
+                    <p class="oblique">Oblique text style</p>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Font Weight</h3>
+                <div class="text-demo font-weight-demo">
+                    <h4>font-weight</h4>
+                    <p class="light">Light weight (300)</p>
+                    <p class="normal">Normal weight (400)</p>
+                    <p class="medium">Medium weight (500)</p>
+                    <p class="bold">Bold weight (700)</p>
+                    <p class="black">Black weight (900)</p>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Text Alignment</h3>
+                <div class="text-demo text-align-demo">
+                    <h4>text-align</h4>
+                    <p class="left">Left aligned text</p>
+                    <p class="center">Center aligned text</p>
+                    <p class="right">Right aligned text</p>
+                    <p class="justify">Justified text that spreads across the full width of the container, creating even margins on both sides. This is useful for creating clean, professional-looking text blocks.</p>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Text Decoration</h3>
+                <div class="text-demo text-decoration-demo">
+                    <h4>text-decoration</h4>
+                    <p class="none">No decoration</p>
+                    <p class="underline">Underlined text</p>
+                    <p class="overline">Overlined text</p>
+                    <p class="line-through">Strikethrough text</p>
+                    <p class="underline-overline">Underlined and overlined text</p>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Letter Spacing</h3>
+                <div class="text-demo letter-spacing-demo">
+                    <h4>letter-spacing</h4>
+                    <p class="tight">Tight spacing (-0.5px)</p>
+                    <p class="normal">Normal spacing</p>
+                    <p class="wide">Wide spacing (2px)</p>
+                    <p class="wider">Wider spacing (4px)</p>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Text Transform</h3>
+                <div class="text-demo text-transform-demo">
+                    <h4>text-transform</h4>
+                    <p class="none">No transformation</p>
+                    <p class="uppercase">Uppercase transformation</p>
+                    <p class="lowercase">Lowercase transformation</p>
+                    <p class="capitalize">Capitalize transformation</p>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>White Space</h3>
+                <div class="text-demo">
+                    <h4>white-space</h4>
+                    <div class="white-space-demo normal">
+                        Normal: This text    has    multiple    spaces    and
+                        line breaks that are collapsed.
+                    </div>
+                    <div class="white-space-demo nowrap">
+                        Nowrap: This text will not wrap to the next line even if it's very long and exceeds the container width.
+                    </div>
+                    <div class="white-space-demo pre">
+                        Pre: This text    preserves    spaces    and
+                        line breaks exactly as written.
+                    </div>
+                    <div class="white-space-demo pre-wrap">
+                        Pre-wrap: This text    preserves    spaces    and
+                        line breaks but will wrap when needed.
+                    </div>
+                    <div class="white-space-demo pre-line">
+                        Pre-line: This text preserves line breaks but
+                        collapses spaces and wraps when needed.
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Vertical Align</h3>
+                <div class="text-demo vertical-align-demo">
+                    <h4>vertical-align</h4>
+                    <p>
+                        <span class="baseline">baseline</span>
+                        <span class="top">top</span>
+                        <span class="middle">middle</span>
+                        <span class="bottom">bottom</span>
+                        <span class="sub">sub</span>
+                        <span class="super">super</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Code</h2>
+            
+            <h3>HTML</h3>
+            <pre class="code-block"><code class="code-html">&lt;div class="text-demo font-size-demo"&gt;
+  &lt;h4&gt;font-size&lt;/h4&gt;
+  &lt;p class="small"&gt;Small text (12px)&lt;/p&gt;
+  &lt;p class="medium"&gt;Medium text (16px)&lt;/p&gt;
+  &lt;p class="large"&gt;Large text (24px)&lt;/p&gt;
+  &lt;p class="xlarge"&gt;Extra large text (32px)&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="text-demo font-style-demo"&gt;
+  &lt;h4&gt;font-style&lt;/h4&gt;
+  &lt;p class="normal"&gt;Normal text style&lt;/p&gt;
+  &lt;p class="italic"&gt;Italic text style&lt;/p&gt;
+  &lt;p class="oblique"&gt;Oblique text style&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="text-demo text-align-demo"&gt;
+  &lt;h4&gt;text-align&lt;/h4&gt;
+  &lt;p class="left"&gt;Left aligned text&lt;/p&gt;
+  &lt;p class="center"&gt;Center aligned text&lt;/p&gt;
+  &lt;p class="right"&gt;Right aligned text&lt;/p&gt;
+  &lt;p class="justify"&gt;Justified text...&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+            <h3>CSS</h3>
+            <pre class="code-block"><code class="code-css">.text-demo {
+  margin: var(--space-4) 0;
+  padding: var(--space-3);
+  border-left: 3px solid var(--brand);
+  background: var(--text-demo-bg);
+  border-radius: var(--radius-1);
+}
+
+/* Font sizes */
+.font-size-demo .small { font-size: 12px; }
+.font-size-demo .medium { font-size: 16px; }
+.font-size-demo .large { font-size: 24px; }
+.font-size-demo .xlarge { font-size: 32px; }
+
+/* Font styles */
+.font-style-demo .normal { font-style: normal; }
+.font-style-demo .italic { font-style: italic; }
+.font-style-demo .oblique { font-style: oblique; }
+
+/* Font weights */
+.font-weight-demo .light { font-weight: 300; }
+.font-weight-demo .normal { font-weight: 400; }
+.font-weight-demo .medium { font-weight: 500; }
+.font-weight-demo .bold { font-weight: 700; }
+.font-weight-demo .black { font-weight: 900; }
+
+/* Text alignment */
+.text-align-demo .left { text-align: left; }
+.text-align-demo .center { text-align: center; }
+.text-align-demo .right { text-align: right; }
+.text-align-demo .justify { text-align: justify; }
+
+/* Text decoration */
+.text-decoration-demo .none { text-decoration: none; }
+.text-decoration-demo .underline { text-decoration: underline; }
+.text-decoration-demo .overline { text-decoration: overline; }
+.text-decoration-demo .line-through { text-decoration: line-through; }
+.text-decoration-demo .underline-overline { text-decoration: underline overline; }
+
+/* Letter spacing */
+.letter-spacing-demo .tight { letter-spacing: -0.5px; }
+.letter-spacing-demo .normal { letter-spacing: normal; }
+.letter-spacing-demo .wide { letter-spacing: 2px; }
+.letter-spacing-demo .wider { letter-spacing: 4px; }
+
+/* Text transform */
+.text-transform-demo .none { text-transform: none; }
+.text-transform-demo .uppercase { text-transform: uppercase; }
+.text-transform-demo .lowercase { text-transform: lowercase; }
+.text-transform-demo .capitalize { text-transform: capitalize; }
+
+/* White space */
+.white-space-demo .normal { white-space: normal; }
+.white-space-demo .nowrap { white-space: nowrap; }
+.white-space-demo .pre { white-space: pre; }
+.white-space-demo .pre-wrap { white-space: pre-wrap; }
+.white-space-demo .pre-line { white-space: pre-line; }
+
+/* Vertical align */
+.vertical-align-demo .baseline { vertical-align: baseline; }
+.vertical-align-demo .top { vertical-align: top; }
+.vertical-align-demo .middle { vertical-align: middle; }
+.vertical-align-demo .bottom { vertical-align: bottom; }
+.vertical-align-demo .sub { vertical-align: sub; }
+.vertical-align-demo .super { vertical-align: super; }</code></pre>
+        </section>
+
+        <section>
+            <h2>Notes</h2>
+            <ul>
+                <li><strong>Font-size:</strong> Use relative units (em, rem) for better scalability</li>
+                <li><strong>Font-weight:</strong> Values range from 100-900, but not all weights are available for every font</li>
+                <li><strong>Text-align:</strong> Only works on block-level elements</li>
+                <li><strong>Text-decoration:</strong> Can be combined (underline overline)</li>
+                <li><strong>Letter-spacing:</strong> Can use negative values for tighter spacing</li>
+                <li><strong>Text-transform:</strong> Useful for consistent casing without changing HTML</li>
+                <li><strong>White-space:</strong> <code>pre</code> preserves all whitespace, <code>pre-wrap</code> adds wrapping</li>
+                <li><strong>Vertical-align:</strong> Only works on inline and table-cell elements</li>
+                <li><strong>Line-height:</strong> Controls spacing between lines of text</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                <a href="borders.html">← Previous: Borders</a> | 
+                <a href="../index.html">Back to Home</a> | 
+                <a href="css-units.html">Next: CSS Units →</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

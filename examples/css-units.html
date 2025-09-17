@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CSS Units – CSS 2: Electric Boogaloo – CSS Learning Hub</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/examples.css">
+    <style>
+        .example-units {
+            --unit-demo-bg: #f8f9fa;
+        }
+        
+        .unit-card {
+            background: var(--unit-demo-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-1);
+            padding: var(--space-4);
+            margin: var(--space-2);
+            text-align: center;
+            font-size: var(--fs-sm);
+            display: inline-block;
+            vertical-align: top;
+        }
+        
+        .unit-card h4 {
+            margin-bottom: var(--space-2);
+            color: var(--brand);
+        }
+        
+        .unit-card .demo-box {
+            background: var(--brand-light);
+            border: 2px solid var(--brand);
+            border-radius: var(--radius-1);
+            margin: var(--space-2) auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--brand);
+            font-weight: bold;
+        }
+        
+        /* Pixel units */
+        .px-demo { width: 100px; height: 60px; }
+        
+        /* Percentage units */
+        .percent-demo { width: 50%; height: 60px; }
+        
+        /* Em units (relative to parent font-size) */
+        .em-demo { width: 10em; height: 3em; font-size: 1em; }
+        
+        /* Rem units (relative to root font-size) */
+        .rem-demo { width: 10rem; height: 3rem; font-size: 1rem; }
+        
+        /* Viewport height units */
+        .vh-demo { width: 20vw; height: 10vh; }
+        
+        /* Viewport width units */
+        .vw-demo { width: 20vw; height: 60px; }
+        
+        /* Viewport minimum units */
+        .vmin-demo { width: 20vmin; height: 20vmin; }
+        
+        /* Viewport maximum units */
+        .vmax-demo { width: 20vmax; height: 20vmax; }
+        
+        .unit-comparison {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+            border-left: 4px solid var(--brand);
+        }
+        
+        .unit-comparison h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .unit-comparison code {
+            background: var(--bg);
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-1);
+            font-family: var(--font-mono);
+            font-size: var(--fs-sm);
+            color: var(--brand);
+        }
+        
+        .responsive-demo {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+        }
+        
+        .responsive-demo .box {
+            background: var(--brand-light);
+            border: 2px solid var(--brand);
+            border-radius: var(--radius-1);
+            padding: var(--space-4);
+            margin: var(--space-2) 0;
+            text-align: center;
+            color: var(--brand);
+            font-weight: bold;
+        }
+        
+        .responsive-demo .px-box { width: 300px; }
+        .responsive-demo .percent-box { width: 50%; }
+        .responsive-demo .rem-box { width: 20rem; }
+        .responsive-demo .vw-box { width: 50vw; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html">CSS Learning Hub</a></h1>
+            <nav>
+                <a href="../index.html">Home</a> › 
+                <a href="../index.html#css-2">CSS 2: Electric Boogaloo</a> › 
+                CSS Units
+            </nav>
+        </div>
+    </header>
+
+    <main class="container example-units">
+        <section>
+            <h1>CSS Units</h1>
+            <p>Learn about different CSS units for sizing elements. Understanding when to use each unit type is crucial for creating responsive, accessible, and maintainable designs. Each unit has specific use cases and behaviors.</p>
+        </section>
+
+        <section>
+            <h2>Live Demo</h2>
+            <div class="demo-area">
+                <h3>Absolute Units</h3>
+                <p>Fixed-size units that don't change based on other properties:</p>
+                
+                <div class="unit-card">
+                    <h4>Pixels (px)</h4>
+                    <div class="demo-box px-demo">100px × 60px</div>
+                    <p>Fixed size, not responsive</p>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Relative Units</h3>
+                <p>Units that are calculated relative to other values:</p>
+                
+                <div class="unit-card">
+                    <h4>Percentage (%)</h4>
+                    <div class="demo-box percent-demo">50% width</div>
+                    <p>Relative to parent element</p>
+                </div>
+                
+                <div class="unit-card">
+                    <h4>Em (em)</h4>
+                    <div class="demo-box em-demo">10em × 3em</div>
+                    <p>Relative to parent font-size</p>
+                </div>
+                
+                <div class="unit-card">
+                    <h4>Rem (rem)</h4>
+                    <div class="demo-box rem-demo">10rem × 3rem</div>
+                    <p>Relative to root font-size</p>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Viewport Units</h3>
+                <p>Units relative to the viewport size:</p>
+                
+                <div class="unit-card">
+                    <h4>Viewport Width (vw)</h4>
+                    <div class="demo-box vw-demo">20vw width</div>
+                    <p>1vw = 1% of viewport width</p>
+                </div>
+                
+                <div class="unit-card">
+                    <h4>Viewport Height (vh)</h4>
+                    <div class="demo-box vh-demo">20vw × 10vh</div>
+                    <p>1vh = 1% of viewport height</p>
+                </div>
+                
+                <div class="unit-card">
+                    <h4>Viewport Min (vmin)</h4>
+                    <div class="demo-box vmin-demo">20vmin × 20vmin</div>
+                    <p>1vmin = 1% of smaller viewport dimension</p>
+                </div>
+                
+                <div class="unit-card">
+                    <h4>Viewport Max (vmax)</h4>
+                    <div class="demo-box vmax-demo">20vmax × 20vmax</div>
+                    <p>1vmax = 1% of larger viewport dimension</p>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Unit Comparison</h3>
+                <p>Same content with different units - resize your browser to see the difference:</p>
+                
+                <div class="responsive-demo">
+                    <div class="box px-box">Fixed: 300px width</div>
+                    <div class="box percent-box">Responsive: 50% width</div>
+                    <div class="box rem-box">Scalable: 20rem width</div>
+                    <div class="box vw-box">Viewport: 50vw width</div>
+                </div>
+            </div>
+
+            <div class="unit-comparison">
+                <h4>Unit Characteristics</h4>
+                <ul>
+                    <li><strong>px:</strong> <code>Fixed size</code> - Always the same size regardless of context</li>
+                    <li><strong>%:</strong> <code>Parent relative</code> - Percentage of parent element's size</li>
+                    <li><strong>em:</strong> <code>Font relative</code> - Multiplier of parent element's font-size</li>
+                    <li><strong>rem:</strong> <code>Root relative</code> - Multiplier of root element's font-size</li>
+                    <li><strong>vw/vh:</strong> <code>Viewport relative</code> - Percentage of viewport width/height</li>
+                    <li><strong>vmin/vmax:</strong> <code>Viewport relative</code> - Percentage of smaller/larger viewport dimension</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Code</h2>
+            
+            <h3>HTML</h3>
+            <pre class="code-block"><code class="code-html">&lt;div class="unit-card"&gt;
+  &lt;h4&gt;Pixels (px)&lt;/h4&gt;
+  &lt;div class="demo-box px-demo"&gt;100px × 60px&lt;/div&gt;
+  &lt;p&gt;Fixed size, not responsive&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="unit-card"&gt;
+  &lt;h4&gt;Percentage (%)&lt;/h4&gt;
+  &lt;div class="demo-box percent-demo"&gt;50% width&lt;/div&gt;
+  &lt;p&gt;Relative to parent element&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="unit-card"&gt;
+  &lt;h4&gt;Em (em)&lt;/h4&gt;
+  &lt;div class="demo-box em-demo"&gt;10em × 3em&lt;/div&gt;
+  &lt;p&gt;Relative to parent font-size&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="unit-card"&gt;
+  &lt;h4&gt;Rem (rem)&lt;/h4&gt;
+  &lt;div class="demo-box rem-demo"&gt;10rem × 3rem&lt;/div&gt;
+  &lt;p&gt;Relative to root font-size&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+            <h3>CSS</h3>
+            <pre class="code-block"><code class="code-css">.unit-card {
+  background: var(--unit-demo-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-1);
+  padding: var(--space-4);
+  margin: var(--space-2);
+  text-align: center;
+  font-size: var(--fs-sm);
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* Pixel units - fixed size */
+.px-demo { 
+  width: 100px; 
+  height: 60px; 
+}
+
+/* Percentage units - relative to parent */
+.percent-demo { 
+  width: 50%; 
+  height: 60px; 
+}
+
+/* Em units - relative to parent font-size */
+.em-demo { 
+  width: 10em; 
+  height: 3em; 
+  font-size: 1em; 
+}
+
+/* Rem units - relative to root font-size */
+.rem-demo { 
+  width: 10rem; 
+  height: 3rem; 
+  font-size: 1rem; 
+}
+
+/* Viewport width units */
+.vw-demo { 
+  width: 20vw; 
+  height: 60px; 
+}
+
+/* Viewport height units */
+.vh-demo { 
+  width: 20vw; 
+  height: 10vh; 
+}
+
+/* Viewport minimum units */
+.vmin-demo { 
+  width: 20vmin; 
+  height: 20vmin; 
+}
+
+/* Viewport maximum units */
+.vmax-demo { 
+  width: 20vmax; 
+  height: 20vmax; 
+}
+
+/* Responsive comparison */
+.responsive-demo .px-box { width: 300px; }
+.responsive-demo .percent-box { width: 50%; }
+.responsive-demo .rem-box { width: 20rem; }
+.responsive-demo .vw-box { width: 50vw; }</code></pre>
+        </section>
+
+        <section>
+            <h2>Notes</h2>
+            <ul>
+                <li><strong>Use px for:</strong> Borders, small fixed elements, precise positioning</li>
+                <li><strong>Use % for:</strong> Layout widths, responsive containers</li>
+                <li><strong>Use em for:</strong> Typography that scales with parent font-size</li>
+                <li><strong>Use rem for:</strong> Consistent typography scale across the site</li>
+                <li><strong>Use vw/vh for:</strong> Full-screen layouts, responsive typography</li>
+                <li><strong>Use vmin/vmax for:</strong> Square elements that scale with viewport</li>
+                <li><strong>Accessibility:</strong> rem units respect user's font-size preferences</li>
+                <li><strong>Performance:</strong> Relative units can cause layout recalculations</li>
+                <li><strong>Browser support:</strong> All modern browsers support these units</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                <a href="text-properties.html">← Previous: Text Properties</a> | 
+                <a href="../index.html">Back to Home</a> | 
+                <a href="web-fonts.html">Next: Web Fonts (@font-face) →</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

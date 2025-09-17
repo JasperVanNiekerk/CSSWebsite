@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Link States – CSS Menus, Pseudo Selectors, Transitions – CSS Learning Hub</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/examples.css">
+    <style>
+        .example-links {
+            --link-bg: #f8f9fa;
+            --link-border: #dee2e6;
+        }
+        
+        .link-demo {
+            display: flex;
+            gap: var(--space-4);
+            margin: var(--space-4) 0;
+            flex-wrap: wrap;
+        }
+        
+        .link-demo a {
+            padding: var(--space-2) var(--space-4);
+            border: 1px solid var(--link-border);
+            border-radius: var(--radius-1);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            min-width: 120px;
+            text-align: center;
+        }
+        
+        .link-demo a:link { 
+            background: var(--link-bg); 
+            color: var(--brand); 
+            border-color: var(--brand);
+        }
+        
+        .link-demo a:visited { 
+            background: #f0f0f0; 
+            color: #666; 
+            border-color: #ccc;
+        }
+        
+        .link-demo a:hover { 
+            background: var(--brand); 
+            color: white; 
+            border-color: var(--brand);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .link-demo a:active { 
+            background: #004499; 
+            color: white; 
+            transform: translateY(0);
+            box-shadow: none;
+        }
+        
+        .link-demo a:focus-visible {
+            outline: 2px solid var(--brand);
+            outline-offset: 2px;
+        }
+        
+        .navigation-demo {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+        }
+        
+        .navigation-demo ul {
+            list-style: none;
+            display: flex;
+            gap: var(--space-2);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .navigation-demo a {
+            padding: var(--space-2) var(--space-4);
+            text-decoration: none;
+            border-radius: var(--radius-1);
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        
+        .navigation-demo a:link {
+            color: var(--text);
+            background: transparent;
+        }
+        
+        .navigation-demo a:visited {
+            color: var(--muted);
+        }
+        
+        .navigation-demo a:hover {
+            background: var(--brand);
+            color: white;
+        }
+        
+        .navigation-demo a:active {
+            background: #004499;
+            color: white;
+        }
+        
+        .state-explanation {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+        }
+        
+        .state-explanation h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .state-explanation code {
+            background: var(--bg);
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-1);
+            font-family: var(--font-mono);
+            font-size: var(--fs-sm);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html">CSS Learning Hub</a></h1>
+            <nav>
+                <a href="../index.html">Home</a> › 
+                <a href="../index.html#css-menus">CSS Menus, Pseudo Selectors, Transitions</a> › 
+                Link States
+            </nav>
+        </div>
+    </header>
+
+    <main class="container example-links">
+        <section>
+            <h1>Link States</h1>
+            <p>Learn how to style different link states using CSS pseudo-classes. Proper link styling is essential for user experience and accessibility. Always style all four states: :link, :visited, :hover, and :active.</p>
+        </section>
+
+        <section>
+            <h2>Live Demo</h2>
+            <div class="demo-area">
+                <h3>Individual Link States</h3>
+                <p>Hover over and click these links to see different states in action:</p>
+                
+                <div class="link-demo">
+                    <a href="#unvisited">Unvisited Link</a>
+                    <a href="https://example.com" target="_blank">External Link</a>
+                    <a href="#visited">Visited Link (click me)</a>
+                    <a href="#active">Active Link (hold down)</a>
+                </div>
+                
+                <div class="state-explanation">
+                    <h4>:link</h4>
+                    <p>Styles unvisited links. This is the default state for links that haven't been clicked yet.</p>
+                    
+                    <h4>:visited</h4>
+                    <p>Styles visited links. Browsers remember which links you've clicked and apply this style.</p>
+                    
+                    <h4>:hover</h4>
+                    <p>Styles links when the mouse hovers over them. Provides visual feedback to users.</p>
+                    
+                    <h4>:active</h4>
+                    <p>Styles links while they're being clicked (mouse button is pressed down).</p>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Navigation Menu Example</h3>
+                <p>A practical example of link states in a navigation menu:</p>
+                
+                <nav class="navigation-demo">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <p><strong>Accessibility Note:</strong> All links are keyboard accessible and include focus-visible outlines for keyboard navigation.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Code</h2>
+            
+            <h3>HTML</h3>
+            <pre class="code-block"><code class="code-html">&lt;div class="link-demo"&gt;
+  &lt;a href="#unvisited"&gt;Unvisited Link&lt;/a&gt;
+  &lt;a href="https://example.com" target="_blank"&gt;External Link&lt;/a&gt;
+  &lt;a href="#visited"&gt;Visited Link (click me)&lt;/a&gt;
+  &lt;a href="#active"&gt;Active Link (hold down)&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;nav class="navigation-demo"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#services"&gt;Services&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+
+            <h3>CSS</h3>
+            <pre class="code-block"><code class="code-css">.link-demo a {
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--link-border);
+  border-radius: var(--radius-1);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  min-width: 120px;
+  text-align: center;
+}
+
+/* Unvisited links */
+.link-demo a:link { 
+  background: var(--link-bg); 
+  color: var(--brand); 
+  border-color: var(--brand);
+}
+
+/* Visited links */
+.link-demo a:visited { 
+  background: #f0f0f0; 
+  color: #666; 
+  border-color: #ccc;
+}
+
+/* Hover state */
+.link-demo a:hover { 
+  background: var(--brand); 
+  color: white; 
+  border-color: var(--brand);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Active state (while clicking) */
+.link-demo a:active { 
+  background: #004499; 
+  color: white; 
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Focus for keyboard navigation */
+.link-demo a:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+/* Navigation menu styles */
+.navigation-demo ul {
+  list-style: none;
+  display: flex;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+}
+
+.navigation-demo a {
+  padding: var(--space-2) var(--space-4);
+  text-decoration: none;
+  border-radius: var(--radius-1);
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.navigation-demo a:link {
+  color: var(--text);
+  background: transparent;
+}
+
+.navigation-demo a:visited {
+  color: var(--muted);
+}
+
+.navigation-demo a:hover {
+  background: var(--brand);
+  color: white;
+}
+
+.navigation-demo a:active {
+  background: #004499;
+  color: white;
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>Notes</h2>
+            <ul>
+                <li><strong>Always style all four states</strong> for better user experience and accessibility</li>
+                <li><strong>:link</strong> - Default state for unvisited links</li>
+                <li><strong>:visited</strong> - Applied to links that have been clicked before</li>
+                <li><strong>:hover</strong> - Applied when mouse hovers over the link</li>
+                <li><strong>:active</strong> - Applied while the link is being clicked</li>
+                <li><strong>Order matters:</strong> :link, :visited, :hover, :active (LoVe HAte)</li>
+                <li>Use <code>:focus-visible</code> for keyboard navigation accessibility</li>
+                <li>Include smooth transitions for better user experience</li>
+                <li>Ensure sufficient color contrast for all states</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                <a href="../index.html">← Back to Home</a> | 
+                <a href="multi-column.html">Next: Multi-column Layout →</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

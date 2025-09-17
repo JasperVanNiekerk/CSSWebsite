@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Z-index & Opacity – CSS 2: Electric Boogaloo – CSS Learning Hub</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/examples.css">
+    <style>
+        .example-z-index {
+            --box-1: #ff6b6b;
+            --box-2: #4ecdc4;
+            --box-3: #45b7d1;
+        }
+        
+        .z-index-demo {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            margin: var(--space-4) auto;
+            background: var(--surface);
+            border: 2px solid var(--border);
+            border-radius: var(--radius-1);
+        }
+        
+        .z-index-box {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: var(--radius-1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .z-index-box:hover {
+            transform: scale(1.1);
+        }
+        
+        .box-1 {
+            background: var(--box-1);
+            top: 20px;
+            left: 20px;
+            z-index: 1;
+        }
+        
+        .box-2 {
+            background: var(--box-2);
+            top: 40px;
+            left: 40px;
+            z-index: 2;
+        }
+        
+        .box-3 {
+            background: var(--box-3);
+            top: 60px;
+            left: 60px;
+            z-index: 3;
+        }
+        
+        .opacity-demo {
+            margin: var(--space-6) 0;
+        }
+        
+        .opacity-box {
+            width: 100px;
+            height: 60px;
+            background: var(--brand);
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: var(--space-2);
+            border-radius: var(--radius-1);
+            font-weight: bold;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .opacity-box:hover {
+            opacity: 0.5;
+        }
+        
+        .opacity-0 { opacity: 0; }
+        .opacity-25 { opacity: 0.25; }
+        .opacity-50 { opacity: 0.5; }
+        .opacity-75 { opacity: 0.75; }
+        .opacity-100 { opacity: 1; }
+        
+        .z-index-explanation {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+            border-left: 4px solid var(--brand);
+        }
+        
+        .z-index-explanation h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .z-index-explanation code {
+            background: var(--bg);
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-1);
+            font-family: var(--font-mono);
+            font-size: var(--fs-sm);
+            color: var(--brand);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html">CSS Learning Hub</a></h1>
+            <nav>
+                <a href="../index.html">Home</a> › 
+                <a href="../index.html#css-2">CSS 2: Electric Boogaloo</a> › 
+                Z-index & Opacity
+            </nav>
+        </div>
+    </header>
+
+    <main class="container example-z-index">
+        <section>
+            <h1>Z-index & Opacity</h1>
+            <p>Learn how to control the stacking order of elements with z-index and create transparency effects with opacity. These properties are essential for creating layered interfaces and visual effects.</p>
+        </section>
+
+        <section>
+            <h2>Live Demo</h2>
+            <div class="demo-area">
+                <h3>Z-index Layering</h3>
+                <p>These boxes demonstrate z-index stacking. Higher z-index values appear on top:</p>
+                
+                <div class="z-index-demo">
+                    <div class="z-index-box box-1">z: 1</div>
+                    <div class="z-index-box box-2">z: 2</div>
+                    <div class="z-index-box box-3">z: 3</div>
+                </div>
+                
+                <div class="z-index-explanation">
+                    <h4>Z-index Values:</h4>
+                    <ul>
+                        <li><strong>Red box:</strong> <code>z-index: 1</code> (bottom layer)</li>
+                        <li><strong>Teal box:</strong> <code>z-index: 2</code> (middle layer)</li>
+                        <li><strong>Blue box:</strong> <code>z-index: 3</code> (top layer)</li>
+                    </ul>
+                    <p><strong>Note:</strong> Z-index only works on positioned elements (relative, absolute, fixed, sticky).</p>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Opacity Transparency</h3>
+                <p>Hover over these boxes to see opacity changes. Opacity values range from 0 (transparent) to 1 (opaque):</p>
+                
+                <div class="opacity-demo">
+                    <div class="opacity-box opacity-0">0%</div>
+                    <div class="opacity-box opacity-25">25%</div>
+                    <div class="opacity-box opacity-50">50%</div>
+                    <div class="opacity-box opacity-75">75%</div>
+                    <div class="opacity-box opacity-100">100%</div>
+                </div>
+                
+                <div class="z-index-explanation">
+                    <h4>Opacity Values:</h4>
+                    <ul>
+                        <li><strong>0 (0%):</strong> Completely transparent (invisible)</li>
+                        <li><strong>0.25 (25%):</strong> Very transparent</li>
+                        <li><strong>0.5 (50%):</strong> Semi-transparent</li>
+                        <li><strong>0.75 (75%):</strong> Mostly opaque</li>
+                        <li><strong>1 (100%):</strong> Completely opaque (default)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Code</h2>
+            
+            <h3>HTML</h3>
+            <pre class="code-block"><code class="code-html">&lt;div class="z-index-demo"&gt;
+  &lt;div class="z-index-box box-1"&gt;z: 1&lt;/div&gt;
+  &lt;div class="z-index-box box-2"&gt;z: 2&lt;/div&gt;
+  &lt;div class="z-index-box box-3"&gt;z: 3&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="opacity-demo"&gt;
+  &lt;div class="opacity-box opacity-0"&gt;0%&lt;/div&gt;
+  &lt;div class="opacity-box opacity-25"&gt;25%&lt;/div&gt;
+  &lt;div class="opacity-box opacity-50"&gt;50%&lt;/div&gt;
+  &lt;div class="opacity-box opacity-75"&gt;75%&lt;/div&gt;
+  &lt;div class="opacity-box opacity-100"&gt;100%&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+            <h3>CSS</h3>
+            <pre class="code-block"><code class="code-css">.z-index-demo {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  margin: var(--space-4) auto;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-1);
+}
+
+.z-index-box {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  border-radius: var(--radius-1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.box-1 {
+  background: var(--box-1);
+  top: 20px;
+  left: 20px;
+  z-index: 1;
+}
+
+.box-2 {
+  background: var(--box-2);
+  top: 40px;
+  left: 40px;
+  z-index: 2;
+}
+
+.box-3 {
+  background: var(--box-3);
+  top: 60px;
+  left: 60px;
+  z-index: 3;
+}
+
+.opacity-box {
+  width: 100px;
+  height: 60px;
+  background: var(--brand);
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--space-2);
+  border-radius: var(--radius-1);
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.opacity-box:hover {
+  opacity: 0.5;
+}
+
+.opacity-0 { opacity: 0; }
+.opacity-25 { opacity: 0.25; }
+.opacity-50 { opacity: 0.5; }
+.opacity-75 { opacity: 0.75; }
+.opacity-100 { opacity: 1; }</code></pre>
+        </section>
+
+        <section>
+            <h2>Notes</h2>
+            <ul>
+                <li><strong>Z-index:</strong> Controls stacking order of positioned elements</li>
+                <li><strong>Higher z-index values</strong> appear on top of lower values</li>
+                <li><strong>Z-index only works</strong> on positioned elements (relative, absolute, fixed, sticky)</li>
+                <li><strong>Opacity:</strong> Controls transparency from 0 (transparent) to 1 (opaque)</li>
+                <li><strong>Opacity affects</strong> the entire element and all its children</li>
+                <li><strong>Use rgba() or hsla()</strong> for background color transparency instead of opacity when possible</li>
+                <li><strong>Z-index stacking context:</strong> Elements with z-index create new stacking contexts</li>
+                <li><strong>Negative z-index values</strong> can place elements behind their parent's background</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                <a href="overflow-visibility.html">← Previous: Overflow & Visibility</a> | 
+                <a href="../index.html">Back to Home</a> | 
+                <a href="borders.html">Next: Borders →</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

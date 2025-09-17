@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Media Queries – Responsive Web Design – CSS Learning Hub</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/examples.css">
+    <style>
+        .example-media-queries {
+            --mobile-bg: #e3f2fd;
+            --tablet-bg: #f3e5f5;
+            --desktop-bg: #e8f5e8;
+        }
+        
+        .responsive-demo {
+            background: var(--mobile-bg);
+            border: 2px solid var(--brand);
+            padding: var(--space-4);
+            margin: var(--space-4) 0;
+            text-align: center;
+            font-weight: bold;
+            color: var(--brand);
+            border-radius: var(--radius-1);
+            transition: all 0.3s ease;
+        }
+        
+        /* Mobile first approach - base styles for mobile */
+        .responsive-demo::before {
+            content: "Mobile (100% width)";
+        }
+        
+        /* Tablet styles - 768px and up */
+        @media (min-width: 768px) {
+            .responsive-demo {
+                background: var(--tablet-bg);
+                width: 50%;
+                margin: var(--space-4) auto;
+            }
+            
+            .responsive-demo::before {
+                content: "Tablet (50% width)";
+            }
+        }
+        
+        /* Desktop styles - 1024px and up */
+        @media (min-width: 1024px) {
+            .responsive-demo {
+                background: var(--desktop-bg);
+                width: 33.333%;
+            }
+            
+            .responsive-demo::before {
+                content: "Desktop (33% width)";
+            }
+        }
+        
+        .breakpoint-demo {
+            display: grid;
+            gap: var(--space-4);
+            margin: var(--space-4) 0;
+        }
+        
+        .breakpoint-demo .box {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+        
+        /* Mobile: 1 column */
+        .breakpoint-demo {
+            grid-template-columns: 1fr;
+        }
+        
+        /* Tablet: 2 columns */
+        @media (min-width: 768px) {
+            .breakpoint-demo {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Desktop: 3 columns */
+        @media (min-width: 1024px) {
+            .breakpoint-demo {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .media-query-info {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+            border-left: 4px solid var(--brand);
+        }
+        
+        .media-query-info h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .media-query-info code {
+            background: var(--bg);
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-1);
+            font-family: var(--font-mono);
+            font-size: var(--fs-sm);
+            color: var(--brand);
+        }
+        
+        .orientation-demo {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+            text-align: center;
+        }
+        
+        .orientation-demo::before {
+            content: "Portrait orientation";
+            color: var(--brand);
+            font-weight: bold;
+        }
+        
+        @media (orientation: landscape) {
+            .orientation-demo::before {
+                content: "Landscape orientation";
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html">CSS Learning Hub</a></h1>
+            <nav>
+                <a href="../index.html">Home</a> › 
+                <a href="../index.html#responsive">Responsive Web Design</a> › 
+                Media Queries
+            </nav>
+        </div>
+    </header>
+
+    <main class="container example-media-queries">
+        <section>
+            <h1>Media Queries</h1>
+            <p>Learn how to apply different styles based on screen size, device characteristics, and other media features. Media queries are the foundation of responsive web design, allowing you to create layouts that adapt to different devices and screen sizes.</p>
+        </section>
+
+        <section>
+            <h2>Live Demo</h2>
+            <div class="demo-area">
+                <h3>Responsive Box</h3>
+                <p>This box changes width and background color based on screen size. Resize your browser window to see the changes:</p>
+                
+                <div class="responsive-demo">
+                    <p>Resize your browser window to see how this box responds to different screen sizes!</p>
+                </div>
+                
+                <div class="media-query-info">
+                    <h4>Current Breakpoints:</h4>
+                    <ul>
+                        <li><strong>Mobile:</strong> <code>0px - 767px</code> (100% width, light blue background)</li>
+                        <li><strong>Tablet:</strong> <code>768px - 1023px</code> (50% width, light purple background)</li>
+                        <li><strong>Desktop:</strong> <code>1024px+</code> (33% width, light green background)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Responsive Grid Layout</h3>
+                <p>This grid adapts its column count based on screen size:</p>
+                
+                <div class="breakpoint-demo">
+                    <div class="box">
+                        <h4>Box 1</h4>
+                        <p>Mobile: Full width</p>
+                    </div>
+                    <div class="box">
+                        <h4>Box 2</h4>
+                        <p>Tablet: 2 columns</p>
+                    </div>
+                    <div class="box">
+                        <h4>Box 3</h4>
+                        <p>Desktop: 3 columns</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Orientation Detection</h3>
+                <p>This box detects device orientation (try rotating your mobile device or resizing your browser window):</p>
+                
+                <div class="orientation-demo">
+                    <p>Rotate your device or resize your browser window to see orientation changes!</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Code</h2>
+            
+            <h3>HTML</h3>
+            <pre class="code-block"><code class="code-html">&lt;div class="responsive-demo"&gt;
+  &lt;p&gt;Resize your browser window to see how this box responds to different screen sizes!&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="breakpoint-demo"&gt;
+  &lt;div class="box"&gt;
+    &lt;h4&gt;Box 1&lt;/h4&gt;
+    &lt;p&gt;Mobile: Full width&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="box"&gt;
+    &lt;h4&gt;Box 2&lt;/h4&gt;
+    &lt;p&gt;Tablet: 2 columns&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="box"&gt;
+    &lt;h4&gt;Box 3&lt;/h4&gt;
+    &lt;p&gt;Desktop: 3 columns&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="orientation-demo"&gt;
+  &lt;p&gt;Rotate your device or resize your browser window to see orientation changes!&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+            <h3>CSS</h3>
+            <pre class="code-block"><code class="code-css">/* Mobile first approach - base styles */
+.responsive-demo {
+  background: var(--mobile-bg);
+  border: 2px solid var(--brand);
+  padding: var(--space-4);
+  margin: var(--space-4) 0;
+  text-align: center;
+  font-weight: bold;
+  color: var(--brand);
+  border-radius: var(--radius-1);
+  transition: all 0.3s ease;
+}
+
+.responsive-demo::before {
+  content: "Mobile (100% width)";
+}
+
+/* Tablet styles - 768px and up */
+@media (min-width: 768px) {
+  .responsive-demo {
+    background: var(--tablet-bg);
+    width: 50%;
+    margin: var(--space-4) auto;
+  }
+  
+  .responsive-demo::before {
+    content: "Tablet (50% width)";
+  }
+}
+
+/* Desktop styles - 1024px and up */
+@media (min-width: 1024px) {
+  .responsive-demo {
+    background: var(--desktop-bg);
+    width: 33.333%;
+  }
+  
+  .responsive-demo::before {
+    content: "Desktop (33% width)";
+  }
+}
+
+/* Responsive grid - mobile first */
+.breakpoint-demo {
+  display: grid;
+  gap: var(--space-4);
+  margin: var(--space-4) 0;
+  grid-template-columns: 1fr; /* Mobile: 1 column */
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 768px) {
+  .breakpoint-demo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: 3 columns */
+@media (min-width: 1024px) {
+  .breakpoint-demo {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Orientation detection */
+.orientation-demo::before {
+  content: "Portrait orientation";
+  color: var(--brand);
+  font-weight: bold;
+}
+
+@media (orientation: landscape) {
+  .orientation-demo::before {
+    content: "Landscape orientation";
+  }
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>Notes</h2>
+            <ul>
+                <li><strong>Mobile-first approach:</strong> Start with mobile styles, then enhance for larger screens</li>
+                <li><strong>Common breakpoints:</strong> 768px (tablet), 1024px (desktop), 1200px (large desktop)</li>
+                <li><strong>min-width:</strong> Styles apply when screen is at least this wide</li>
+                <li><strong>max-width:</strong> Styles apply when screen is at most this wide</li>
+                <li><strong>orientation:</strong> portrait or landscape detection</li>
+                <li><strong>Always include viewport meta tag:</strong> <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code></li>
+                <li>Use relative units (%, em, rem) instead of fixed pixels for better responsiveness</li>
+                <li>Test on actual devices, not just browser resizing</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                <a href="../index.html">← Back to Home</a> | 
+                <a href="breakpoints.html">Next: Breakpoints →</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

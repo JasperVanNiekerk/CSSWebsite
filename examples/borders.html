@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Borders – CSS 2: Electric Boogaloo – CSS Learning Hub</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/examples.css">
+    <style>
+        .example-borders {
+            --border-demo-bg: #f8f9fa;
+        }
+        
+        .border-demo {
+            width: 100px;
+            height: 60px;
+            margin: var(--space-2);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--fs-sm);
+            text-align: center;
+            background: var(--border-demo-bg);
+        }
+        
+        .border-demo.solid { border: 2px solid var(--brand); }
+        .border-demo.dashed { border: 2px dashed var(--brand); }
+        .border-demo.dotted { border: 2px dotted var(--brand); }
+        .border-demo.double { border: 4px double var(--brand); }
+        .border-demo.groove { border: 4px groove var(--brand); }
+        .border-demo.ridge { border: 4px ridge var(--brand); }
+        .border-demo.inset { border: 4px inset var(--brand); }
+        .border-demo.outset { border: 4px outset var(--brand); }
+        .border-demo.none { border: none; }
+        .border-demo.hidden { border: 2px hidden var(--brand); }
+        
+        .border-width-demo {
+            margin: var(--space-4) 0;
+        }
+        
+        .border-width-demo .border-demo {
+            border-style: solid;
+            border-color: var(--brand);
+        }
+        
+        .border-width-demo .thin { border-width: 1px; }
+        .border-width-demo .medium { border-width: 3px; }
+        .border-width-demo .thick { border-width: 6px; }
+        .border-width-demo .custom { border-width: 2px 4px 6px 8px; }
+        
+        .border-color-demo {
+            margin: var(--space-4) 0;
+        }
+        
+        .border-color-demo .border-demo {
+            border-style: solid;
+            border-width: 3px;
+        }
+        
+        .border-color-demo .red { border-color: #ff6b6b; }
+        .border-color-demo .green { border-color: #4ecdc4; }
+        .border-color-demo .blue { border-color: #45b7d1; }
+        .border-color-demo .multi { border-color: #ff6b6b #4ecdc4 #45b7d1 #f9ca24; }
+        
+        .border-side-demo {
+            margin: var(--space-4) 0;
+        }
+        
+        .border-side-demo .border-demo {
+            border-style: solid;
+            border-width: 3px;
+            border-color: var(--brand);
+        }
+        
+        .border-side-demo .top { border-top: 3px solid var(--brand); }
+        .border-side-demo .right { border-right: 3px solid var(--brand); }
+        .border-side-demo .bottom { border-bottom: 3px solid var(--brand); }
+        .border-side-demo .left { border-left: 3px solid var(--brand); }
+        
+        .border-radius-demo {
+            margin: var(--space-4) 0;
+        }
+        
+        .border-radius-demo .border-demo {
+            border: 2px solid var(--brand);
+            background: var(--brand-light);
+        }
+        
+        .border-radius-demo .small { border-radius: 4px; }
+        .border-radius-demo .medium { border-radius: 8px; }
+        .border-radius-demo .large { border-radius: 16px; }
+        .border-radius-demo .circle { border-radius: 50%; }
+        .border-radius-demo .custom { border-radius: 8px 16px 4px 20px; }
+        
+        .border-shorthand-demo {
+            margin: var(--space-4) 0;
+        }
+        
+        .border-shorthand-demo .border-demo {
+            background: var(--brand-light);
+            padding: var(--space-2);
+        }
+        
+        .border-shorthand-demo .shorthand { border: 3px solid var(--brand); }
+        .border-shorthand-demo .individual {
+            border-width: 3px;
+            border-style: solid;
+            border-color: var(--brand);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html">CSS Learning Hub</a></h1>
+            <nav>
+                <a href="../index.html">Home</a> › 
+                <a href="../index.html#css-2">CSS 2: Electric Boogaloo</a> › 
+                Borders
+            </nav>
+        </div>
+    </header>
+
+    <main class="container example-borders">
+        <section>
+            <h1>Borders</h1>
+            <p>Learn how to create and style borders around elements. Borders are essential for creating visual separation, emphasis, and defining element boundaries. Master border styles, widths, colors, and the shorthand property.</p>
+        </section>
+
+        <section>
+            <h2>Live Demo</h2>
+            <div class="demo-area">
+                <h3>Border Styles</h3>
+                <p>Different border styles you can apply to elements:</p>
+                
+                <div class="border-demo solid">solid</div>
+                <div class="border-demo dashed">dashed</div>
+                <div class="border-demo dotted">dotted</div>
+                <div class="border-demo double">double</div>
+                <div class="border-demo groove">groove</div>
+                <div class="border-demo ridge">ridge</div>
+                <div class="border-demo inset">inset</div>
+                <div class="border-demo outset">outset</div>
+                <div class="border-demo none">none</div>
+                <div class="border-demo hidden">hidden</div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Border Widths</h3>
+                <p>Control the thickness of borders:</p>
+                
+                <div class="border-width-demo">
+                    <div class="border-demo thin">1px</div>
+                    <div class="border-demo medium">3px</div>
+                    <div class="border-demo thick">6px</div>
+                    <div class="border-demo custom">2px 4px 6px 8px</div>
+                </div>
+                <p><strong>Note:</strong> The last box shows different widths for top, right, bottom, left sides.</p>
+            </div>
+
+            <div class="demo-area">
+                <h3>Border Colors</h3>
+                <p>Apply different colors to borders:</p>
+                
+                <div class="border-color-demo">
+                    <div class="border-demo red">Red</div>
+                    <div class="border-demo green">Green</div>
+                    <div class="border-demo blue">Blue</div>
+                    <div class="border-demo multi">Multi-color</div>
+                </div>
+                <p><strong>Note:</strong> The last box shows different colors for each side (top, right, bottom, left).</p>
+            </div>
+
+            <div class="demo-area">
+                <h3>Individual Sides</h3>
+                <p>Apply borders to specific sides only:</p>
+                
+                <div class="border-side-demo">
+                    <div class="border-demo top">Top only</div>
+                    <div class="border-demo right">Right only</div>
+                    <div class="border-demo bottom">Bottom only</div>
+                    <div class="border-demo left">Left only</div>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Border Radius</h3>
+                <p>Create rounded corners with border-radius:</p>
+                
+                <div class="border-radius-demo">
+                    <div class="border-demo small">4px</div>
+                    <div class="border-demo medium">8px</div>
+                    <div class="border-demo large">16px</div>
+                    <div class="border-demo circle">50%</div>
+                    <div class="border-demo custom">8px 16px 4px 20px</div>
+                </div>
+                <p><strong>Note:</strong> The last box shows different radius values for each corner (top-left, top-right, bottom-right, bottom-left).</p>
+            </div>
+
+            <div class="demo-area">
+                <h3>Border Shorthand vs Individual Properties</h3>
+                <p>Two ways to achieve the same result:</p>
+                
+                <div class="border-shorthand-demo">
+                    <div class="border-demo shorthand">border: 3px solid #0066cc;</div>
+                    <div class="border-demo individual">Individual properties</div>
+                </div>
+                <p><strong>Shorthand:</strong> <code>border: width style color;</code></p>
+                <p><strong>Individual:</strong> <code>border-width</code>, <code>border-style</code>, <code>border-color</code></p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Code</h2>
+            
+            <h3>HTML</h3>
+            <pre class="code-block"><code class="code-html">&lt;div class="border-demo solid"&gt;solid&lt;/div&gt;
+&lt;div class="border-demo dashed"&gt;dashed&lt;/div&gt;
+&lt;div class="border-demo dotted"&gt;dotted&lt;/div&gt;
+&lt;div class="border-demo double"&gt;double&lt;/div&gt;
+&lt;div class="border-demo groove"&gt;groove&lt;/div&gt;
+&lt;div class="border-demo ridge"&gt;ridge&lt;/div&gt;
+&lt;div class="border-demo inset"&gt;inset&lt;/div&gt;
+&lt;div class="border-demo outset"&gt;outset&lt;/div&gt;
+&lt;div class="border-demo none"&gt;none&lt;/div&gt;
+&lt;div class="border-demo hidden"&gt;hidden&lt;/div&gt;
+
+&lt;div class="border-demo thin"&gt;1px&lt;/div&gt;
+&lt;div class="border-demo medium"&gt;3px&lt;/div&gt;
+&lt;div class="border-demo thick"&gt;6px&lt;/div&gt;
+&lt;div class="border-demo custom"&gt;2px 4px 6px 8px&lt;/div&gt;
+
+&lt;div class="border-demo red"&gt;Red&lt;/div&gt;
+&lt;div class="border-demo green"&gt;Green&lt;/div&gt;
+&lt;div class="border-demo blue"&gt;Blue&lt;/div&gt;
+&lt;div class="border-demo multi"&gt;Multi-color&lt;/div&gt;</code></pre>
+
+            <h3>CSS</h3>
+            <pre class="code-block"><code class="code-css">.border-demo {
+  width: 100px;
+  height: 60px;
+  margin: var(--space-2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-sm);
+  text-align: center;
+  background: var(--border-demo-bg);
+}
+
+/* Border styles */
+.border-demo.solid { border: 2px solid var(--brand); }
+.border-demo.dashed { border: 2px dashed var(--brand); }
+.border-demo.dotted { border: 2px dotted var(--brand); }
+.border-demo.double { border: 4px double var(--brand); }
+.border-demo.groove { border: 4px groove var(--brand); }
+.border-demo.ridge { border: 4px ridge var(--brand); }
+.border-demo.inset { border: 4px inset var(--brand); }
+.border-demo.outset { border: 4px outset var(--brand); }
+.border-demo.none { border: none; }
+.border-demo.hidden { border: 2px hidden var(--brand); }
+
+/* Border widths */
+.border-width-demo .thin { border-width: 1px; }
+.border-width-demo .medium { border-width: 3px; }
+.border-width-demo .thick { border-width: 6px; }
+.border-width-demo .custom { border-width: 2px 4px 6px 8px; }
+
+/* Border colors */
+.border-color-demo .red { border-color: #ff6b6b; }
+.border-color-demo .green { border-color: #4ecdc4; }
+.border-color-demo .blue { border-color: #45b7d1; }
+.border-color-demo .multi { border-color: #ff6b6b #4ecdc4 #45b7d1 #f9ca24; }
+
+/* Individual sides */
+.border-side-demo .top { border-top: 3px solid var(--brand); }
+.border-side-demo .right { border-right: 3px solid var(--brand); }
+.border-side-demo .bottom { border-bottom: 3px solid var(--brand); }
+.border-side-demo .left { border-left: 3px solid var(--brand); }
+
+/* Border radius */
+.border-radius-demo .small { border-radius: 4px; }
+.border-radius-demo .medium { border-radius: 8px; }
+.border-radius-demo .large { border-radius: 16px; }
+.border-radius-demo .circle { border-radius: 50%; }
+.border-radius-demo .custom { border-radius: 8px 16px 4px 20px; }
+
+/* Shorthand vs individual */
+.border-shorthand-demo .shorthand { border: 3px solid var(--brand); }
+.border-shorthand-demo .individual {
+  border-width: 3px;
+  border-style: solid;
+  border-color: var(--brand);
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>Notes</h2>
+            <ul>
+                <li><strong>Border shorthand:</strong> <code>border: width style color;</code> (order matters)</li>
+                <li><strong>Individual properties:</strong> <code>border-width</code>, <code>border-style</code>, <code>border-color</code></li>
+                <li><strong>Side-specific:</strong> <code>border-top</code>, <code>border-right</code>, <code>border-bottom</code>, <code>border-left</code></li>
+                <li><strong>Border-radius:</strong> Creates rounded corners, can be different for each corner</li>
+                <li><strong>Border-box:</strong> Borders are included in element's total width/height by default</li>
+                <li><strong>Transparent borders:</strong> Use <code>border-color: transparent</code> for invisible borders</li>
+                <li><strong>Border-collapse:</strong> Use <code>border-collapse: collapse</code> for table borders</li>
+                <li><strong>Box-shadow:</strong> Alternative to borders for some visual effects</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                <a href="z-index-opacity.html">← Previous: Z-index & Opacity</a> | 
+                <a href="../index.html">Back to Home</a> | 
+                <a href="text-properties.html">Next: Text Properties →</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Overflow & Visibility – CSS 2: Electric Boogaloo – CSS Learning Hub</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/examples.css">
+    <style>
+        .example-overflow {
+            --demo-bg: #f8f9fa;
+            --demo-border: #dee2e6;
+        }
+        
+        .overflow-demo {
+            height: 120px;
+            width: 200px;
+            border: 2px solid var(--demo-border);
+            margin: var(--space-2);
+            padding: var(--space-2);
+            background: var(--demo-bg);
+            display: inline-block;
+            vertical-align: top;
+        }
+        
+        .overflow-demo.visible { overflow: visible; }
+        .overflow-demo.hidden { overflow: hidden; }
+        .overflow-demo.scroll { overflow: scroll; }
+        .overflow-demo.auto { overflow: auto; }
+        
+        .overflow-demo h4 {
+            margin-bottom: var(--space-2);
+            font-size: var(--fs-sm);
+            color: var(--brand);
+        }
+        
+        .overflow-content {
+            background: var(--brand-light);
+            padding: var(--space-2);
+            margin: var(--space-1);
+            border-radius: var(--radius-1);
+            font-size: var(--fs-sm);
+        }
+        
+        .visibility-demo {
+            margin-top: var(--space-6);
+        }
+        
+        .visibility-box {
+            width: 100px;
+            height: 60px;
+            background: var(--brand);
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: var(--space-2);
+            border-radius: var(--radius-1);
+            font-weight: bold;
+        }
+        
+        .visibility-box.hidden {
+            visibility: hidden;
+        }
+        
+        .overflow-xy-demo {
+            margin-top: var(--space-6);
+        }
+        
+        .overflow-xy-demo .overflow-demo {
+            width: 150px;
+            height: 80px;
+        }
+        
+        .overflow-x-scroll { overflow-x: scroll; overflow-y: hidden; }
+        .overflow-y-scroll { overflow-x: hidden; overflow-y: scroll; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html">CSS Learning Hub</a></h1>
+            <nav>
+                <a href="../index.html">Home</a> › 
+                <a href="../index.html#css-2">CSS 2: Electric Boogaloo</a> › 
+                Overflow & Visibility
+            </nav>
+        </div>
+    </header>
+
+    <main class="container example-overflow">
+        <section>
+            <h1>Overflow & Visibility</h1>
+            <p>Learn how to control content overflow and element visibility. These properties are essential for managing content that exceeds its container's boundaries and controlling element visibility without affecting layout.</p>
+        </section>
+
+        <section>
+            <h2>Live Demo</h2>
+            <div class="demo-area">
+                <h3>Overflow Property Examples</h3>
+                <div class="overflow-demo visible">
+                    <h4>overflow: visible</h4>
+                    <div class="overflow-content">This content extends beyond the container boundaries and is visible outside the box.</div>
+                    <div class="overflow-content">More content that overflows.</div>
+                    <div class="overflow-content">Even more content to demonstrate overflow behavior.</div>
+                </div>
+                
+                <div class="overflow-demo hidden">
+                    <h4>overflow: hidden</h4>
+                    <div class="overflow-content">This content extends beyond the container boundaries but is clipped and hidden.</div>
+                    <div class="overflow-content">More content that overflows.</div>
+                    <div class="overflow-content">Even more content to demonstrate overflow behavior.</div>
+                </div>
+                
+                <div class="overflow-demo scroll">
+                    <h4>overflow: scroll</h4>
+                    <div class="overflow-content">This content extends beyond the container boundaries and scrollbars are always visible.</div>
+                    <div class="overflow-content">More content that overflows.</div>
+                    <div class="overflow-content">Even more content to demonstrate overflow behavior.</div>
+                </div>
+                
+                <div class="overflow-demo auto">
+                    <h4>overflow: auto</h4>
+                    <div class="overflow-content">This content extends beyond the container boundaries and scrollbars appear only when needed.</div>
+                    <div class="overflow-content">More content that overflows.</div>
+                    <div class="overflow-content">Even more content to demonstrate overflow behavior.</div>
+                </div>
+            </div>
+
+            <div class="demo-area visibility-demo">
+                <h3>Visibility Property Examples</h3>
+                <div class="visibility-box">Visible</div>
+                <div class="visibility-box hidden">Hidden</div>
+                <div class="visibility-box">Still Visible</div>
+                <p class="mt-4"><strong>Note:</strong> The hidden element still takes up space in the layout, unlike <code>display: none</code>.</p>
+            </div>
+
+            <div class="demo-area overflow-xy-demo">
+                <h3>Overflow X and Y Examples</h3>
+                <div class="overflow-demo overflow-x-scroll">
+                    <h4>overflow-x: scroll</h4>
+                    <div class="overflow-content">This is a very long line of text that will cause horizontal scrolling when it exceeds the container width.</div>
+                </div>
+                
+                <div class="overflow-demo overflow-y-scroll">
+                    <h4>overflow-y: scroll</h4>
+                    <div class="overflow-content">Vertical content 1</div>
+                    <div class="overflow-content">Vertical content 2</div>
+                    <div class="overflow-content">Vertical content 3</div>
+                    <div class="overflow-content">Vertical content 4</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Code</h2>
+            
+            <h3>HTML</h3>
+            <pre class="code-block"><code class="code-html">&lt;div class="overflow-demo visible"&gt;
+  &lt;h4&gt;overflow: visible&lt;/h4&gt;
+  &lt;div class="overflow-content"&gt;This content extends beyond the container boundaries and is visible outside the box.&lt;/div&gt;
+  &lt;div class="overflow-content"&gt;More content that overflows.&lt;/div&gt;
+  &lt;div class="overflow-content"&gt;Even more content to demonstrate overflow behavior.&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="overflow-demo hidden"&gt;
+  &lt;h4&gt;overflow: hidden&lt;/h4&gt;
+  &lt;div class="overflow-content"&gt;This content extends beyond the container boundaries but is clipped and hidden.&lt;/div&gt;
+  &lt;div class="overflow-content"&gt;More content that overflows.&lt;/div&gt;
+  &lt;div class="overflow-content"&gt;Even more content to demonstrate overflow behavior.&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="overflow-demo scroll"&gt;
+  &lt;h4&gt;overflow: scroll&lt;/h4&gt;
+  &lt;div class="overflow-content"&gt;This content extends beyond the container boundaries and scrollbars are always visible.&lt;/div&gt;
+  &lt;div class="overflow-content"&gt;More content that overflows.&lt;/div&gt;
+  &lt;div class="overflow-content"&gt;Even more content to demonstrate overflow behavior.&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="overflow-demo auto"&gt;
+  &lt;h4&gt;overflow: auto&lt;/h4&gt;
+  &lt;div class="overflow-content"&gt;This content extends beyond the container boundaries and scrollbars appear only when needed.&lt;/div&gt;
+  &lt;div class="overflow-content"&gt;More content that overflows.&lt;/div&gt;
+  &lt;div class="overflow-content"&gt;Even more content to demonstrate overflow behavior.&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="visibility-box"&gt;Visible&lt;/div&gt;
+&lt;div class="visibility-box hidden"&gt;Hidden&lt;/div&gt;
+&lt;div class="visibility-box"&gt;Still Visible&lt;/div&gt;</code></pre>
+
+            <h3>CSS</h3>
+            <pre class="code-block"><code class="code-css">.overflow-demo {
+  height: 120px;
+  width: 200px;
+  border: 2px solid var(--demo-border);
+  margin: var(--space-2);
+  padding: var(--space-2);
+  background: var(--demo-bg);
+  display: inline-block;
+  vertical-align: top;
+}
+
+.overflow-demo.visible { overflow: visible; }
+.overflow-demo.hidden { overflow: hidden; }
+.overflow-demo.scroll { overflow: scroll; }
+.overflow-demo.auto { overflow: auto; }
+
+.overflow-x-scroll { 
+  overflow-x: scroll; 
+  overflow-y: hidden; 
+}
+
+.overflow-y-scroll { 
+  overflow-x: hidden; 
+  overflow-y: scroll; 
+}
+
+.visibility-box.hidden {
+  visibility: hidden;
+}
+
+.overflow-content {
+  background: var(--brand-light);
+  padding: var(--space-2);
+  margin: var(--space-1);
+  border-radius: var(--radius-1);
+  font-size: var(--fs-sm);
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>Notes</h2>
+            <ul>
+                <li><strong>overflow: visible</strong> (default) - Content extends beyond the container boundaries</li>
+                <li><strong>overflow: hidden</strong> - Content is clipped and hidden outside the container</li>
+                <li><strong>overflow: scroll</strong> - Scrollbars are always visible, even when not needed</li>
+                <li><strong>overflow: auto</strong> - Scrollbars appear only when content overflows</li>
+                <li><strong>visibility: hidden</strong> - Element is hidden but still takes up space in the layout</li>
+                <li><strong>overflow-x</strong> and <strong>overflow-y</strong> - Control horizontal and vertical overflow independently</li>
+                <li>Use <code>overflow: auto</code> for most responsive designs to avoid unnecessary scrollbars</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                <a href="../index.html">← Back to Home</a> | 
+                <a href="z-index-opacity.html">Next: Z-index & Opacity →</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
