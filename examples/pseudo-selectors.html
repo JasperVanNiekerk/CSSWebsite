@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pseudo Selectors – CSS Menus, Pseudo Selectors, Transitions – CSS Learning Hub</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/examples.css">
+    <style>
+        .example-pseudo {
+            --pseudo-demo-bg: #f8f9fa;
+        }
+        
+        .pseudo-demo {
+            margin: var(--space-4) 0;
+        }
+        
+        .pseudo-demo ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .pseudo-demo li {
+            padding: var(--space-2) var(--space-4);
+            margin: var(--space-1) 0;
+            background: var(--surface);
+            border-radius: var(--radius-1);
+            transition: all 0.2s ease;
+        }
+        
+        .pseudo-demo li:first-child {
+            background: var(--brand-light);
+            color: var(--brand);
+            font-weight: bold;
+        }
+        
+        .pseudo-demo li:nth-child(odd) {
+            border-left: 3px solid var(--brand);
+        }
+        
+        .pseudo-demo li:hover {
+            background: var(--brand);
+            color: white;
+            transform: translateX(4px);
+        }
+        
+        .pseudo-demo li:last-child {
+            border-bottom: 2px dashed var(--border);
+        }
+        
+        .pseudo-demo li:nth-child(3n) {
+            font-style: italic;
+        }
+        
+        .pseudo-demo li:not(:first-child):not(:last-child) {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html">CSS Learning Hub</a></h1>
+            <nav>
+                <a href="../index.html">Home</a> › 
+                <a href="../index.html#css-menus">CSS Menus, Pseudo Selectors, Transitions</a> › 
+                Pseudo Selectors
+            </nav>
+        </div>
+    </header>
+
+    <main class="container example-pseudo">
+        <section>
+            <h1>Pseudo Selectors</h1>
+            <p>Learn about CSS pseudo-selectors that target elements based on their position, state, or relationship to other elements. These selectors provide powerful ways to style elements without adding extra classes or IDs.</p>
+        </section>
+
+        <section>
+            <h2>Live Demo</h2>
+            <div class="demo-area">
+                <h3>Pseudo Selector Examples</h3>
+                <p>Hover over these list items to see different pseudo-selectors in action:</p>
+                
+                <div class="pseudo-demo">
+                    <ul>
+                        <li>:first-child - First item in the list</li>
+                        <li>:nth-child(odd) - Every odd item</li>
+                        <li>:hover - Hover over me!</li>
+                        <li>:nth-child(3n) - Every third item</li>
+                        <li>:not(:first-child):not(:last-child) - Middle items</li>
+                        <li>:last-child - Last item in the list</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Code</h2>
+            
+            <h3>HTML</h3>
+            <pre class="code-block"><code class="code-html">&lt;div class="pseudo-demo"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;:first-child - First item in the list&lt;/li&gt;
+    &lt;li&gt;:nth-child(odd) - Every odd item&lt;/li&gt;
+    &lt;li&gt;:hover - Hover over me!&lt;/li&gt;
+    &lt;li&gt;:nth-child(3n) - Every third item&lt;/li&gt;
+    &lt;li&gt;:not(:first-child):not(:last-child) - Middle items&lt;/li&gt;
+    &lt;li&gt;:last-child - Last item in the list&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+
+            <h3>CSS</h3>
+            <pre class="code-block"><code class="code-css">.pseudo-demo li:first-child {
+  background: var(--brand-light);
+  color: var(--brand);
+  font-weight: bold;
+}
+
+.pseudo-demo li:nth-child(odd) {
+  border-left: 3px solid var(--brand);
+}
+
+.pseudo-demo li:hover {
+  background: var(--brand);
+  color: white;
+  transform: translateX(4px);
+}
+
+.pseudo-demo li:last-child {
+  border-bottom: 2px dashed var(--border);
+}
+
+.pseudo-demo li:nth-child(3n) {
+  font-style: italic;
+}
+
+.pseudo-demo li:not(:first-child):not(:last-child) {
+  opacity: 0.9;
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>Notes</h2>
+            <ul>
+                <li><strong>:first-child</strong> - Targets the first child element</li>
+                <li><strong>:last-child</strong> - Targets the last child element</li>
+                <li><strong>:nth-child(n)</strong> - Targets elements at position n</li>
+                <li><strong>:nth-child(odd)</strong> - Targets odd-positioned elements</li>
+                <li><strong>:nth-child(even)</strong> - Targets even-positioned elements</li>
+                <li><strong>:hover</strong> - Targets elements being hovered</li>
+                <li><strong>:not()</strong> - Targets elements that don't match the selector</li>
+                <li><strong>Cascade matters</strong> - Later rules override earlier ones</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                <a href="multi-column.html">← Previous: Multi-column Layout</a> | 
+                <a href="../index.html">Back to Home</a> | 
+                <a href="vendor-prefixes-reset.html">Next: Vendor Prefixes & Reset →</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

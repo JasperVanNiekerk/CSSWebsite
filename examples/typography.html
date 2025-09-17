@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Typography Scale – CSS 2: Electric Boogaloo – CSS Learning Hub</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/examples.css">
+    <style>
+        .example-typography {
+            --typography-demo-bg: #f8f9fa;
+        }
+        
+        .typography-scale {
+            margin: var(--space-4) 0;
+        }
+        
+        .typography-scale h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: var(--space-4);
+            color: var(--brand);
+        }
+        
+        .typography-scale h2 {
+            font-size: 2rem;
+            line-height: 1.3;
+            margin-bottom: var(--space-3);
+            color: var(--text);
+        }
+        
+        .typography-scale h3 {
+            font-size: 1.5rem;
+            line-height: 1.4;
+            margin-bottom: var(--space-3);
+            color: var(--text);
+        }
+        
+        .typography-scale h4 {
+            font-size: 1.25rem;
+            line-height: 1.4;
+            margin-bottom: var(--space-2);
+            color: var(--text);
+        }
+        
+        .typography-scale h5 {
+            font-size: 1.125rem;
+            line-height: 1.5;
+            margin-bottom: var(--space-2);
+            color: var(--text);
+        }
+        
+        .typography-scale h6 {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: var(--space-2);
+            color: var(--muted);
+        }
+        
+        .typography-scale p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: var(--space-4);
+            color: var(--text);
+        }
+        
+        .typography-scale .small {
+            font-size: 0.875rem;
+            line-height: 1.5;
+            color: var(--muted);
+        }
+        
+        .typography-scale .large {
+            font-size: 1.125rem;
+            line-height: 1.6;
+        }
+        
+        .typography-demo {
+            background: var(--typography-demo-bg);
+            padding: var(--space-6);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+            border-left: 4px solid var(--brand);
+        }
+        
+        .typography-demo h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-3);
+            font-size: var(--fs-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .scale-comparison {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-4);
+            margin: var(--space-4) 0;
+        }
+        
+        @media (min-width: 768px) {
+            .scale-comparison {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .scale-comparison .demo-box {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            border: 1px solid var(--border);
+        }
+        
+        .scale-comparison .demo-box h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .bad-scale h1 { font-size: 24px; }
+        .bad-scale h2 { font-size: 22px; }
+        .bad-scale h3 { font-size: 20px; }
+        .bad-scale h4 { font-size: 18px; }
+        .bad-scale h5 { font-size: 16px; }
+        .bad-scale h6 { font-size: 14px; }
+        
+        .good-scale h1 { font-size: 2.5rem; }
+        .good-scale h2 { font-size: 2rem; }
+        .good-scale h3 { font-size: 1.5rem; }
+        .good-scale h4 { font-size: 1.25rem; }
+        .good-scale h5 { font-size: 1.125rem; }
+        .good-scale h6 { font-size: 1rem; }
+        
+        .typography-info {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+            border-left: 4px solid var(--brand);
+        }
+        
+        .typography-info h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .typography-info code {
+            background: var(--bg);
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-1);
+            font-family: var(--font-mono);
+            font-size: var(--fs-sm);
+            color: var(--brand);
+        }
+        
+        .line-height-demo {
+            margin: var(--space-4) 0;
+        }
+        
+        .line-height-demo .demo-box {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-2) 0;
+            border: 1px solid var(--border);
+        }
+        
+        .line-height-demo h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .line-height-tight { line-height: 1.2; }
+        .line-height-normal { line-height: 1.5; }
+        .line-height-loose { line-height: 1.8; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html">CSS Learning Hub</a></h1>
+            <nav>
+                <a href="../index.html">Home</a> › 
+                <a href="../index.html#css-2">CSS 2: Electric Boogaloo</a> › 
+                Typography Scale
+            </nav>
+        </div>
+    </header>
+
+    <main class="container example-typography">
+        <section>
+            <h1>Typography Scale</h1>
+            <p>Learn how to create a consistent, harmonious typography scale using relative units. A well-designed typography scale ensures readability, visual hierarchy, and professional appearance across your entire website.</p>
+        </section>
+
+        <section>
+            <h2>Live Demo</h2>
+            <div class="demo-area">
+                <h3>Complete Typography Scale</h3>
+                <p>This demonstrates a well-structured typography scale using relative units (rem) for consistent scaling:</p>
+                
+                <div class="typography-demo typography-scale">
+                    <h4>Typography Scale Example</h4>
+                    <h1>Heading 1 - Main Title</h1>
+                    <h2>Heading 2 - Section Title</h2>
+                    <h3>Heading 3 - Subsection Title</h3>
+                    <h4>Heading 4 - Minor Heading</h4>
+                    <h5>Heading 5 - Small Heading</h5>
+                    <h6>Heading 6 - Smallest Heading</h6>
+                    <p>This is a paragraph with body text. It should be comfortable to read and provide good contrast with the background. The line height should be generous enough to prevent eye strain.</p>
+                    <p class="large">This is large body text, useful for important paragraphs or introductory text.</p>
+                    <p class="small">This is small text, often used for captions, footnotes, or secondary information.</p>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Scale Comparison</h3>
+                <p>Compare a poorly designed scale (fixed pixels) with a well-designed scale (relative units):</p>
+                
+                <div class="scale-comparison">
+                    <div class="demo-box bad-scale">
+                        <h4>Poor Scale (Fixed Pixels)</h4>
+                        <h1>Heading 1</h1>
+                        <h2>Heading 2</h2>
+                        <h3>Heading 3</h3>
+                        <h4>Heading 4</h4>
+                        <h5>Heading 5</h5>
+                        <h6>Heading 6</h6>
+                        <p>Body text</p>
+                    </div>
+                    
+                    <div class="demo-box good-scale">
+                        <h4>Good Scale (Relative Units)</h4>
+                        <h1>Heading 1</h1>
+                        <h2>Heading 2</h2>
+                        <h3>Heading 3</h3>
+                        <h4>Heading 4</h4>
+                        <h5>Heading 5</h5>
+                        <h6>Heading 6</h6>
+                        <p>Body text</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Line Height Variations</h3>
+                <p>Different line heights for different content types:</p>
+                
+                <div class="line-height-demo">
+                    <div class="demo-box">
+                        <h4>Tight Line Height (1.2)</h4>
+                        <p class="line-height-tight">This text has tight line spacing, which is often used for headings and short text blocks. It creates a more compact appearance but can be harder to read for longer content.</p>
+                    </div>
+                    
+                    <div class="demo-box">
+                        <h4>Normal Line Height (1.5)</h4>
+                        <p class="line-height-normal">This text has normal line spacing, which is ideal for body text and most content. It provides good readability while maintaining a clean, professional appearance.</p>
+                    </div>
+                    
+                    <div class="demo-box">
+                        <h4>Loose Line Height (1.8)</h4>
+                        <p class="line-height-loose">This text has loose line spacing, which is often used for accessibility or when you want a more relaxed, spacious feel. It's great for long-form content and improves readability.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="typography-info">
+                <h4>Typography Scale Best Practices</h4>
+                <ul>
+                    <li><strong>Use relative units:</strong> <code>rem</code> for font sizes, <code>em</code> for line heights</li>
+                    <li><strong>Establish hierarchy:</strong> Clear size differences between heading levels</li>
+                    <li><strong>Maintain proportions:</strong> Use a consistent ratio (1.25, 1.5, or 1.618)</li>
+                    <li><strong>Consider line height:</strong> 1.4-1.6 for body text, 1.2-1.4 for headings</li>
+                    <li><strong>Test readability:</strong> Ensure text is comfortable to read at all sizes</li>
+                    <li><strong>Use CSS custom properties:</strong> Define your scale in variables for consistency</li>
+                    <li><strong>Responsive scaling:</strong> Adjust scale for different screen sizes</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Code</h2>
+            
+            <h3>HTML</h3>
+            <pre class="code-block"><code class="code-html">&lt;div class="typography-demo typography-scale"&gt;
+  &lt;h4&gt;Typography Scale Example&lt;/h4&gt;
+  &lt;h1&gt;Heading 1 - Main Title&lt;/h1&gt;
+  &lt;h2&gt;Heading 2 - Section Title&lt;/h2&gt;
+  &lt;h3&gt;Heading 3 - Subsection Title&lt;/h3&gt;
+  &lt;h4&gt;Heading 4 - Minor Heading&lt;/h4&gt;
+  &lt;h5&gt;Heading 5 - Small Heading&lt;/h5&gt;
+  &lt;h6&gt;Heading 6 - Smallest Heading&lt;/h6&gt;
+  &lt;p&gt;This is a paragraph with body text...&lt;/p&gt;
+  &lt;p class="large"&gt;This is large body text...&lt;/p&gt;
+  &lt;p class="small"&gt;This is small text...&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+            <h3>CSS</h3>
+            <pre class="code-block"><code class="code-css">/* Typography scale using relative units */
+.typography-scale h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: var(--space-4);
+  color: var(--brand);
+}
+
+.typography-scale h2 {
+  font-size: 2rem;
+  line-height: 1.3;
+  margin-bottom: var(--space-3);
+  color: var(--text);
+}
+
+.typography-scale h3 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin-bottom: var(--space-3);
+  color: var(--text);
+}
+
+.typography-scale h4 {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin-bottom: var(--space-2);
+  color: var(--text);
+}
+
+.typography-scale h5 {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  margin-bottom: var(--space-2);
+  color: var(--text);
+}
+
+.typography-scale h6 {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: var(--space-2);
+  color: var(--muted);
+}
+
+.typography-scale p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: var(--space-4);
+  color: var(--text);
+}
+
+.typography-scale .small {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.typography-scale .large {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+/* Line height variations */
+.line-height-tight { line-height: 1.2; }
+.line-height-normal { line-height: 1.5; }
+.line-height-loose { line-height: 1.8; }
+
+/* Typography demo styling */
+.typography-demo {
+  background: var(--typography-demo-bg);
+  padding: var(--space-6);
+  border-radius: var(--radius-1);
+  margin: var(--space-4) 0;
+  border-left: 4px solid var(--brand);
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>Notes</h2>
+            <ul>
+                <li><strong>Relative units:</strong> Use <code>rem</code> for font sizes, <code>em</code> for line heights</li>
+                <li><strong>Consistent ratio:</strong> Use a mathematical ratio (1.25, 1.5, or 1.618) for scale</li>
+                <li><strong>Line height:</strong> 1.4-1.6 for body text, 1.2-1.4 for headings</li>
+                <li><strong>CSS custom properties:</strong> Define your scale in variables for consistency</li>
+                <li><strong>Responsive design:</strong> Adjust scale for different screen sizes</li>
+                <li><strong>Accessibility:</strong> Ensure sufficient contrast and readable sizes</li>
+                <li><strong>Testing:</strong> Test your scale with real content, not just headings</li>
+                <li><strong>Modular scale:</strong> Consider using a modular scale for mathematical consistency</li>
+                <li><strong>Vertical rhythm:</strong> Use consistent spacing between elements</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                <a href="google-fonts.html">← Previous: Google Fonts</a> | 
+                <a href="../index.html">Back to Home</a> | 
+                <a href="links-states.html">Next: Link States →</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vendor Prefixes & Reset – CSS Menus, Pseudo Selectors, Transitions – CSS Learning Hub</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/examples.css">
+    <style>
+        .example-vendor {
+            --vendor-demo-bg: #f8f9fa;
+        }
+        
+        .vendor-demo {
+            background: var(--vendor-demo-bg);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+            border-left: 4px solid var(--brand);
+        }
+        
+        .vendor-demo h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .border-radius-demo {
+            width: 100px;
+            height: 60px;
+            background: var(--brand);
+            margin: var(--space-2);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .border-radius-demo.prefixed {
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            border-radius: 8px;
+        }
+        
+        .border-radius-demo.modern {
+            border-radius: 8px;
+        }
+        
+        .reset-demo {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+            border: 1px solid var(--border);
+        }
+        
+        .reset-demo h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .reset-demo .no-reset {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .reset-demo .with-reset {
+            margin: var(--space-4) 0;
+            padding: var(--space-2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html">CSS Learning Hub</a></h1>
+            <nav>
+                <a href="../index.html">Home</a> › 
+                <a href="../index.html#css-menus">CSS Menus, Pseudo Selectors, Transitions</a> › 
+                Vendor Prefixes & Reset
+            </nav>
+        </div>
+    </header>
+
+    <main class="container example-vendor">
+        <section>
+            <h1>Vendor Prefixes & Reset</h1>
+            <p>Learn about vendor prefixes for cross-browser compatibility and the importance of CSS resets for consistent styling across different browsers.</p>
+        </section>
+
+        <section>
+            <h2>Live Demo</h2>
+            <div class="demo-area">
+                <h3>Vendor Prefixes</h3>
+                <p>These boxes demonstrate the same border-radius property with and without vendor prefixes:</p>
+                
+                <div class="vendor-demo">
+                    <h4>Border Radius with Vendor Prefixes</h4>
+                    <div class="border-radius-demo prefixed">Prefixed</div>
+                    <div class="border-radius-demo modern">Modern</div>
+                    <p>Both boxes look the same, but the first includes vendor prefixes for older browsers.</p>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>CSS Reset</h3>
+                <p>This site uses a CSS reset to normalize browser defaults:</p>
+                
+                <div class="reset-demo">
+                    <h4>Without Reset</h4>
+                    <div class="no-reset">
+                        <h5>Heading</h5>
+                        <p>Paragraph with default margins and padding</p>
+                        <ul>
+                            <li>List item with default styling</li>
+                            <li>Another list item</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="reset-demo">
+                    <h4>With Reset (this site)</h4>
+                    <div class="with-reset">
+                        <h5>Heading</h5>
+                        <p>Paragraph with consistent margins and padding</p>
+                        <ul>
+                            <li>List item with consistent styling</li>
+                            <li>Another list item</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Code</h2>
+            
+            <h3>HTML</h3>
+            <pre class="code-block"><code class="code-html">&lt;div class="border-radius-demo prefixed"&gt;Prefixed&lt;/div&gt;
+&lt;div class="border-radius-demo modern"&gt;Modern&lt;/div&gt;</code></pre>
+
+            <h3>CSS</h3>
+            <pre class="code-block"><code class="code-css">/* With vendor prefixes */
+.border-radius-demo.prefixed {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+
+/* Modern CSS (no prefixes needed) */
+.border-radius-demo.modern {
+  border-radius: 8px;
+}
+
+/* CSS Reset example */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>Notes</h2>
+            <ul>
+                <li><strong>Vendor prefixes:</strong> -webkit-, -moz-, -ms-, -o- for browser compatibility</li>
+                <li><strong>Order matters:</strong> Prefixes first, standard property last</li>
+                <li><strong>Modern browsers:</strong> Most prefixes are no longer needed</li>
+                <li><strong>CSS Reset:</strong> Normalizes browser defaults for consistency</li>
+                <li><strong>Box-sizing:</strong> Include border-box for predictable sizing</li>
+                <li><strong>Use tools:</strong> Autoprefixer can add prefixes automatically</li>
+                <li><strong>Test thoroughly:</strong> Always test in target browsers</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                <a href="pseudo-selectors.html">← Previous: Pseudo Selectors</a> | 
+                <a href="../index.html">Back to Home</a> | 
+                <a href="transitions-transforms.html">Next: Transitions & Transforms →</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

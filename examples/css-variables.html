@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CSS Variables – CSS Menus, Pseudo Selectors, Transitions – CSS Learning Hub</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/examples.css">
+    <style>
+        .example-variables {
+            --demo-color: #ff6b6b;
+            --demo-size: 1.5rem;
+            --demo-spacing: 2rem;
+        }
+        
+        .variable-demo {
+            --demo-color: #ff6b6b;
+            --demo-size: 1.5rem;
+            padding: var(--space-4);
+            background: var(--surface);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+        }
+        
+        .variable-demo h3 {
+            color: var(--demo-color);
+            font-size: var(--demo-size);
+        }
+        
+        .variable-demo button {
+            background: var(--demo-color);
+            color: white;
+            border: none;
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-1);
+            cursor: pointer;
+            margin: var(--space-2);
+        }
+        
+        .variable-demo .box {
+            width: var(--demo-spacing);
+            height: var(--demo-spacing);
+            background: var(--demo-color);
+            margin: var(--space-2);
+            border-radius: var(--radius-1);
+        }
+        
+        .variable-scope {
+            --local-color: #4ecdc4;
+            --local-size: 2rem;
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+            border-left: 4px solid var(--local-color);
+        }
+        
+        .variable-scope h4 {
+            color: var(--local-color);
+            font-size: var(--local-size);
+        }
+        
+        .variable-scope p {
+            color: var(--local-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html">CSS Learning Hub</a></h1>
+            <nav>
+                <a href="../index.html">Home</a> › 
+                <a href="../index.html#css-menus">CSS Menus, Pseudo Selectors, Transitions</a> › 
+                CSS Variables
+            </nav>
+        </div>
+    </header>
+
+    <main class="container example-variables">
+        <section>
+            <h1>CSS Variables</h1>
+            <p>Learn how to use CSS custom properties (variables) to create maintainable, dynamic styles. Variables allow you to store values and reuse them throughout your CSS, making it easier to maintain consistent designs.</p>
+        </section>
+
+        <section>
+            <h2>Live Demo</h2>
+            <div class="demo-area">
+                <h3>Basic CSS Variables</h3>
+                <p>This example demonstrates CSS variables in action:</p>
+                
+                <div class="variable-demo">
+                    <h3>Variable-powered Heading</h3>
+                    <p>This heading uses CSS variables for color and font size.</p>
+                    <button>Variable Button</button>
+                    <div class="box"></div>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Variable Scope</h3>
+                <p>Variables can be scoped to specific elements:</p>
+                
+                <div class="variable-scope">
+                    <h4>Scoped Variables</h4>
+                    <p>This section uses locally scoped variables that don't affect other elements.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Code</h2>
+            
+            <h3>HTML</h3>
+            <pre class="code-block"><code class="code-html">&lt;div class="variable-demo"&gt;
+  &lt;h3&gt;Variable-powered Heading&lt;/h3&gt;
+  &lt;p&gt;This heading uses CSS variables...&lt;/p&gt;
+  &lt;button&gt;Variable Button&lt;/button&gt;
+  &lt;div class="box"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+            <h3>CSS</h3>
+            <pre class="code-block"><code class="code-css">.variable-demo {
+  --demo-color: #ff6b6b;
+  --demo-size: 1.5rem;
+  --demo-spacing: 2rem;
+  padding: var(--space-4);
+  background: var(--surface);
+  border-radius: var(--radius-1);
+  margin: var(--space-4) 0;
+}
+
+.variable-demo h3 {
+  color: var(--demo-color);
+  font-size: var(--demo-size);
+}
+
+.variable-demo button {
+  background: var(--demo-color);
+  color: white;
+  border: none;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-1);
+  cursor: pointer;
+  margin: var(--space-2);
+}
+
+.variable-demo .box {
+  width: var(--demo-spacing);
+  height: var(--demo-spacing);
+  background: var(--demo-color);
+  margin: var(--space-2);
+  border-radius: var(--radius-1);
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>Notes</h2>
+            <ul>
+                <li><strong>Define with --:</strong> <code>--variable-name: value;</code></li>
+                <li><strong>Use with var():</strong> <code>property: var(--variable-name);</code></li>
+                <li><strong>Scope:</strong> Variables inherit from parent elements</li>
+                <li><strong>:root scope:</strong> Global variables available everywhere</li>
+                <li><strong>Fallback values:</strong> <code>var(--var, fallback)</code></li>
+                <li><strong>Dynamic updates:</strong> Variables can be changed with JavaScript</li>
+                <li><strong>Browser support:</strong> Excellent support in modern browsers</li>
+                <li><strong>Performance:</strong> Variables are computed at runtime</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                <a href="transitions-transforms.html">← Previous: Transitions & Transforms</a> | 
+                <a href="../index.html">Back to Home</a> | 
+                <a href="viewport-meta.html">Next: Viewport Meta →</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Google Fonts – CSS 2: Electric Boogaloo – CSS Learning Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/examples.css">
+    <style>
+        .example-google-fonts {
+            --font-demo-bg: #f8f9fa;
+        }
+        
+        .font-demo {
+            font-size: var(--fs-lg);
+            line-height: 1.6;
+            margin: var(--space-4) 0;
+            padding: var(--space-4);
+            background: var(--font-demo-bg);
+            border-radius: var(--radius-1);
+            border-left: 4px solid var(--brand);
+        }
+        
+        .font-demo h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+            font-size: var(--fs-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .font-demo p {
+            margin-bottom: var(--space-2);
+        }
+        
+        .font-comparison {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-4);
+            margin: var(--space-4) 0;
+        }
+        
+        @media (min-width: 768px) {
+            .font-comparison {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .font-comparison .demo-box {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            border: 1px solid var(--border);
+        }
+        
+        .font-comparison .demo-box h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .system-font {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .google-font-inter {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .google-font-playfair {
+            font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+        }
+        
+        .font-weights {
+            margin: var(--space-4) 0;
+        }
+        
+        .font-weights .demo-box {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-2) 0;
+            border: 1px solid var(--border);
+        }
+        
+        .font-weights h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .weight-300 { font-weight: 300; }
+        .weight-400 { font-weight: 400; }
+        .weight-500 { font-weight: 500; }
+        .weight-600 { font-weight: 600; }
+        .weight-700 { font-weight: 700; }
+        
+        .font-info {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+            border-left: 4px solid var(--brand);
+        }
+        
+        .font-info h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .font-info code {
+            background: var(--bg);
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-1);
+            font-family: var(--font-mono);
+            font-size: var(--fs-sm);
+            color: var(--brand);
+        }
+        
+        .font-styles {
+            margin: var(--space-4) 0;
+        }
+        
+        .font-styles .demo-box {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-2) 0;
+            border: 1px solid var(--border);
+        }
+        
+        .font-styles h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .style-normal { font-style: normal; }
+        .style-italic { font-style: italic; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html">CSS Learning Hub</a></h1>
+            <nav>
+                <a href="../index.html">Home</a> › 
+                <a href="../index.html#css-2">CSS 2: Electric Boogaloo</a> › 
+                Google Fonts
+            </nav>
+        </div>
+    </header>
+
+    <main class="container example-google-fonts">
+        <section>
+            <h1>Google Fonts</h1>
+            <p>Learn how to integrate Google Fonts into your projects. Google Fonts provides a vast collection of free, open-source fonts that are optimized for web use. They're easy to implement and provide excellent performance and accessibility.</p>
+        </section>
+
+        <section>
+            <h2>Live Demo</h2>
+            <div class="demo-area">
+                <h3>Google Fonts in Action</h3>
+                <p>This page uses two Google Fonts: Inter (sans-serif) and Playfair Display (serif). Notice how they enhance the typography:</p>
+                
+                <div class="font-demo google-font-inter">
+                    <h4>Inter Font (Sans-serif)</h4>
+                    <p>Inter is a modern, highly readable sans-serif font designed specifically for computer screens. It's perfect for body text, interfaces, and digital content.</p>
+                </div>
+                
+                <div class="font-demo google-font-playfair">
+                    <h4>Playfair Display Font (Serif)</h4>
+                    <p>Playfair Display is an elegant serif font with high contrast and distinctive character. It's ideal for headings, titles, and decorative text.</p>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Font Comparison</h3>
+                <p>Compare system fonts with Google Fonts:</p>
+                
+                <div class="font-comparison">
+                    <div class="demo-box">
+                        <h4>System Font Stack</h4>
+                        <p class="system-font">This text uses a system font stack that provides native fonts on each platform. It's fast, accessible, and looks great on all devices.</p>
+                    </div>
+                    
+                    <div class="demo-box">
+                        <h4>Google Font (Inter)</h4>
+                        <p class="google-font-inter">This text uses Inter from Google Fonts. It provides consistent typography across all platforms and devices, with excellent readability.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Font Weights</h3>
+                <p>Google Fonts often include multiple weights. Here's Inter in different weights:</p>
+                
+                <div class="font-weights">
+                    <div class="demo-box google-font-inter">
+                        <h4>Inter Font Weights</h4>
+                        <p class="weight-300">Light (300) - Perfect for subtle text and captions</p>
+                        <p class="weight-400">Regular (400) - Ideal for body text and general use</p>
+                        <p class="weight-500">Medium (500) - Great for emphasis and subheadings</p>
+                        <p class="weight-600">Semi-bold (600) - Strong emphasis and small headings</p>
+                        <p class="weight-700">Bold (700) - Headings and strong emphasis</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Font Styles</h3>
+                <p>Google Fonts can include different styles like italic:</p>
+                
+                <div class="font-styles">
+                    <div class="demo-box google-font-playfair">
+                        <h4>Playfair Display Styles</h4>
+                        <p class="style-normal">Normal style - Clean and elegant</p>
+                        <p class="style-italic">Italic style - Flowing and decorative</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="font-info">
+                <h4>Google Fonts Implementation</h4>
+                <p>This page uses the following Google Fonts implementation:</p>
+                <ul>
+                    <li><strong>Preconnect:</strong> <code>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</code></li>
+                    <li><strong>Font Link:</strong> <code>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet"&gt;</code></li>
+                    <li><strong>CSS Usage:</strong> <code>font-family: 'Inter', sans-serif;</code></li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Code</h2>
+            
+            <h3>HTML</h3>
+            <pre class="code-block"><code class="code-html">&lt;!-- Preconnect to Google Fonts for better performance --&gt;
+&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+
+&lt;!-- Load Google Fonts --&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet"&gt;
+
+&lt;div class="font-demo google-font-inter"&gt;
+  &lt;h4&gt;Inter Font (Sans-serif)&lt;/h4&gt;
+  &lt;p&gt;Inter is a modern, highly readable sans-serif font...&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="font-demo google-font-playfair"&gt;
+  &lt;h4&gt;Playfair Display Font (Serif)&lt;/h4&gt;
+  &lt;p&gt;Playfair Display is an elegant serif font...&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+            <h3>CSS</h3>
+            <pre class="code-block"><code class="code-css">/* Apply Google Fonts with fallbacks */
+.google-font-inter {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.google-font-playfair {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+}
+
+/* System font stack for comparison */
+.system-font {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Font weight variants */
+.weight-300 { font-weight: 300; }
+.weight-400 { font-weight: 400; }
+.weight-500 { font-weight: 500; }
+.weight-600 { font-weight: 600; }
+.weight-700 { font-weight: 700; }
+
+/* Font style variants */
+.style-normal { font-style: normal; }
+.style-italic { font-style: italic; }
+
+/* Font demo styling */
+.font-demo {
+  font-size: var(--fs-lg);
+  line-height: 1.6;
+  margin: var(--space-4) 0;
+  padding: var(--space-4);
+  background: var(--font-demo-bg);
+  border-radius: var(--radius-1);
+  border-left: 4px solid var(--brand);
+}
+
+.font-demo h4 {
+  color: var(--brand);
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>Notes</h2>
+            <ul>
+                <li><strong>Preconnect:</strong> Use <code>rel="preconnect"</code> to improve loading performance</li>
+                <li><strong>Display swap:</strong> Use <code>display=swap</code> to show fallback fonts while loading</li>
+                <li><strong>Fallback fonts:</strong> Always provide system font fallbacks</li>
+                <li><strong>Font weights:</strong> Only load the weights you actually use</li>
+                <li><strong>Performance:</strong> Google Fonts are optimized and cached globally</li>
+                <li><strong>Accessibility:</strong> Google Fonts meet web accessibility standards</li>
+                <li><strong>Self-hosting:</strong> Consider self-hosting for better privacy and control</li>
+                <li><strong>Font pairing:</strong> Choose fonts that work well together</li>
+                <li><strong>Loading strategy:</strong> Use <code>font-display: swap</code> for better UX</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                <a href="web-fonts.html">← Previous: Web Fonts (@font-face)</a> | 
+                <a href="../index.html">Back to Home</a> | 
+                <a href="typography.html">Next: Typography Scale →</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Web Fonts (@font-face) – CSS 2: Electric Boogaloo – CSS Learning Hub</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/examples.css">
+    <style>
+        .example-web-fonts {
+            --font-demo-bg: #f8f9fa;
+        }
+        
+        /* @font-face declaration for custom font */
+        @font-face {
+            font-family: 'CustomFont';
+            src: url('../assets/fonts/custom-font.woff2') format('woff2'),
+                 url('../assets/fonts/custom-font.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        /* Fallback for when custom font is not available */
+        .custom-font-demo {
+            font-family: 'CustomFont', 'Georgia', serif;
+        }
+        
+        .font-demo {
+            font-size: var(--fs-lg);
+            line-height: 1.6;
+            margin: var(--space-4) 0;
+            padding: var(--space-4);
+            background: var(--font-demo-bg);
+            border-radius: var(--radius-1);
+            border-left: 4px solid var(--brand);
+        }
+        
+        .font-demo h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+            font-size: var(--fs-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .font-demo p {
+            margin-bottom: var(--space-2);
+        }
+        
+        .font-comparison {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-4);
+            margin: var(--space-4) 0;
+        }
+        
+        @media (min-width: 768px) {
+            .font-comparison {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .font-comparison .demo-box {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            border: 1px solid var(--border);
+        }
+        
+        .font-comparison .demo-box h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .system-font {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .custom-font {
+            font-family: 'CustomFont', 'Georgia', serif;
+        }
+        
+        .font-info {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+            border-left: 4px solid var(--brand);
+        }
+        
+        .font-info h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .font-info code {
+            background: var(--bg);
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-1);
+            font-family: var(--font-mono);
+            font-size: var(--fs-sm);
+            color: var(--brand);
+        }
+        
+        .font-weights {
+            margin: var(--space-4) 0;
+        }
+        
+        .font-weights .demo-box {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-2) 0;
+            border: 1px solid var(--border);
+        }
+        
+        .font-weights h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .weight-normal { font-weight: normal; }
+        .weight-bold { font-weight: bold; }
+        .weight-100 { font-weight: 100; }
+        .weight-300 { font-weight: 300; }
+        .weight-400 { font-weight: 400; }
+        .weight-500 { font-weight: 500; }
+        .weight-700 { font-weight: 700; }
+        .weight-900 { font-weight: 900; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html">CSS Learning Hub</a></h1>
+            <nav>
+                <a href="../index.html">Home</a> › 
+                <a href="../index.html#css-2">CSS 2: Electric Boogaloo</a> › 
+                Web Fonts (@font-face)
+            </nav>
+        </div>
+    </header>
+
+    <main class="container example-web-fonts">
+        <section>
+            <h1>Web Fonts (@font-face)</h1>
+            <p>Learn how to embed custom fonts using @font-face declarations. This allows you to use fonts that aren't installed on users' systems, giving you complete control over typography while maintaining good performance and accessibility.</p>
+        </section>
+
+        <section>
+            <h2>Live Demo</h2>
+            <div class="demo-area">
+                <h3>Custom Font Example</h3>
+                <p>This example shows how to use @font-face to load a custom font with proper fallbacks:</p>
+                
+                <div class="font-demo custom-font-demo">
+                    <h4>Custom Font (with fallback)</h4>
+                    <p>This text uses a custom font loaded via @font-face. If the custom font fails to load, it will fall back to Georgia, then to the default serif font.</p>
+                    <p><strong>Note:</strong> In this demo, the custom font file doesn't exist, so you'll see the fallback font (Georgia) being used.</p>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Font Comparison</h3>
+                <p>Compare system fonts with custom fonts:</p>
+                
+                <div class="font-comparison">
+                    <div class="demo-box">
+                        <h4>System Font Stack</h4>
+                        <p class="system-font">This text uses a system font stack that provides native fonts on each platform. It's fast, accessible, and looks great on all devices.</p>
+                    </div>
+                    
+                    <div class="demo-box">
+                        <h4>Custom Font (with fallback)</h4>
+                        <p class="custom-font">This text uses a custom font loaded via @font-face. The fallback ensures text remains readable even if the custom font fails to load.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Font Weights</h3>
+                <p>Custom fonts can include multiple weights and styles:</p>
+                
+                <div class="font-weights">
+                    <div class="demo-box">
+                        <h4>Font Weight Variants</h4>
+                        <p class="weight-100">Thin (100) - Lightest weight</p>
+                        <p class="weight-300">Light (300) - Light weight</p>
+                        <p class="weight-400">Normal (400) - Regular weight</p>
+                        <p class="weight-500">Medium (500) - Medium weight</p>
+                        <p class="weight-700">Bold (700) - Bold weight</p>
+                        <p class="weight-900">Black (900) - Heaviest weight</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="font-info">
+                <h4>@font-face Best Practices</h4>
+                <ul>
+                    <li><strong>Use WOFF2 format:</strong> Best compression and browser support</li>
+                    <li><strong>Include fallbacks:</strong> Always provide system font fallbacks</li>
+                    <li><strong>Use font-display: swap:</strong> Improves loading performance</li>
+                    <li><strong>Preload critical fonts:</strong> Use <code>&lt;link rel="preload"&gt;</code> for above-the-fold fonts</li>
+                    <li><strong>Limit font files:</strong> Only load the weights and styles you actually use</li>
+                    <li><strong>Test fallbacks:</strong> Ensure your fallback fonts look good and are readable</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Code</h2>
+            
+            <h3>HTML</h3>
+            <pre class="code-block"><code class="code-html">&lt;div class="font-demo custom-font-demo"&gt;
+  &lt;h4&gt;Custom Font (with fallback)&lt;/h4&gt;
+  &lt;p&gt;This text uses a custom font loaded via @font-face. If the custom font fails to load, it will fall back to Georgia, then to the default serif font.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="font-comparison"&gt;
+  &lt;div class="demo-box"&gt;
+    &lt;h4&gt;System Font Stack&lt;/h4&gt;
+    &lt;p class="system-font"&gt;This text uses a system font stack...&lt;/p&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="demo-box"&gt;
+    &lt;h4&gt;Custom Font (with fallback)&lt;/h4&gt;
+    &lt;p class="custom-font"&gt;This text uses a custom font...&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+            <h3>CSS</h3>
+            <pre class="code-block"><code class="code-css">/* @font-face declaration */
+@font-face {
+  font-family: 'CustomFont';
+  src: url('../assets/fonts/custom-font.woff2') format('woff2'),
+       url('../assets/fonts/custom-font.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Apply custom font with fallbacks */
+.custom-font-demo {
+  font-family: 'CustomFont', 'Georgia', serif;
+}
+
+/* System font stack */
+.system-font {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Custom font with fallback */
+.custom-font {
+  font-family: 'CustomFont', 'Georgia', serif;
+}
+
+/* Font weight variants */
+.weight-100 { font-weight: 100; }
+.weight-300 { font-weight: 300; }
+.weight-400 { font-weight: 400; }
+.weight-500 { font-weight: 500; }
+.weight-700 { font-weight: 700; }
+.weight-900 { font-weight: 900; }
+
+/* Font demo styling */
+.font-demo {
+  font-size: var(--fs-lg);
+  line-height: 1.6;
+  margin: var(--space-4) 0;
+  padding: var(--space-4);
+  background: var(--font-demo-bg);
+  border-radius: var(--radius-1);
+  border-left: 4px solid var(--brand);
+}
+
+.font-demo h4 {
+  color: var(--brand);
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>Notes</h2>
+            <ul>
+                <li><strong>@font-face:</strong> Declares custom fonts for use in CSS</li>
+                <li><strong>Font formats:</strong> WOFF2 (best), WOFF (good), TTF/OTF (fallback)</li>
+                <li><strong>Font-display:</strong> Controls how fonts are displayed during loading</li>
+                <li><strong>Fallback fonts:</strong> Always provide system font fallbacks</li>
+                <li><strong>Performance:</strong> Custom fonts can slow down page loading</li>
+                <li><strong>Preloading:</strong> Use <code>&lt;link rel="preload"&gt;</code> for critical fonts</li>
+                <li><strong>Font subsetting:</strong> Include only the characters you need</li>
+                <li><strong>Accessibility:</strong> Ensure custom fonts meet readability standards</li>
+                <li><strong>Licensing:</strong> Make sure you have proper licenses for commercial fonts</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                <a href="css-units.html">← Previous: CSS Units</a> | 
+                <a href="../index.html">Back to Home</a> | 
+                <a href="google-fonts.html">Next: Google Fonts →</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

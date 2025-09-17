@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Multi-column Layout – CSS Menus, Pseudo Selectors, Transitions – CSS Learning Hub</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/examples.css">
+    <style>
+        .example-multi-column {
+            --column-demo-bg: #f8f9fa;
+        }
+        
+        .column-demo {
+            column-count: 3;
+            column-gap: var(--space-6);
+            column-rule: 1px solid var(--border);
+            margin: var(--space-4) 0;
+            padding: var(--space-4);
+            background: var(--column-demo-bg);
+            border-radius: var(--radius-1);
+        }
+        
+        .column-demo h3 {
+            column-span: all;
+            margin-bottom: var(--space-4);
+            color: var(--brand);
+            text-align: center;
+        }
+        
+        .column-demo p {
+            margin-bottom: var(--space-4);
+            text-align: justify;
+        }
+        
+        .column-demo .break {
+            break-before: column;
+        }
+        
+        .column-demo .avoid-break {
+            break-inside: avoid;
+        }
+        
+        .column-demo .force-break {
+            break-after: column;
+        }
+        
+        .column-variations {
+            margin: var(--space-4) 0;
+        }
+        
+        .column-variations .demo-box {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-2) 0;
+            border: 1px solid var(--border);
+        }
+        
+        .column-variations h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .column-2 { column-count: 2; column-gap: var(--space-4); }
+        .column-3 { column-count: 3; column-gap: var(--space-4); }
+        .column-4 { column-count: 4; column-gap: var(--space-3); }
+        .column-auto { column-count: auto; column-width: 200px; column-gap: var(--space-4); }
+        
+        .column-rules {
+            column-rule: 2px solid var(--brand);
+            column-rule-style: dashed;
+        }
+        
+        .column-gaps {
+            column-gap: var(--space-8);
+        }
+        
+        .column-spans {
+            column-span: all;
+            background: var(--brand-light);
+            padding: var(--space-2);
+            border-radius: var(--radius-1);
+            margin: var(--space-2) 0;
+            text-align: center;
+            font-weight: bold;
+            color: var(--brand);
+        }
+        
+        .column-breaks {
+            margin: var(--space-4) 0;
+        }
+        
+        .column-breaks .demo-box {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-2) 0;
+            border: 1px solid var(--border);
+        }
+        
+        .column-breaks h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .break-inside-avoid { break-inside: avoid; }
+        .break-before-column { break-before: column; }
+        .break-after-column { break-after: column; }
+        .break-before-page { break-before: page; }
+        .break-after-page { break-after: page; }
+        
+        .column-info {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+            border-left: 4px solid var(--brand);
+        }
+        
+        .column-info h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .column-info code {
+            background: var(--bg);
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-1);
+            font-family: var(--font-mono);
+            font-size: var(--fs-sm);
+            color: var(--brand);
+        }
+        
+        .responsive-columns {
+            column-count: 1;
+            column-gap: var(--space-4);
+        }
+        
+        @media (min-width: 768px) {
+            .responsive-columns {
+                column-count: 2;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .responsive-columns {
+                column-count: 3;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html">CSS Learning Hub</a></h1>
+            <nav>
+                <a href="../index.html">Home</a> › 
+                <a href="../index.html#css-menus">CSS Menus, Pseudo Selectors, Transitions</a> › 
+                Multi-column Layout
+            </nav>
+        </div>
+    </header>
+
+    <main class="container example-multi-column">
+        <section>
+            <h1>Multi-column Layout</h1>
+            <p>Learn how to create newspaper-style layouts using CSS columns. Multi-column layout is perfect for long-form content, articles, and text-heavy pages where you want to maximize space usage and improve readability.</p>
+        </section>
+
+        <section>
+            <h2>Live Demo</h2>
+            <div class="demo-area">
+                <h3>Basic Multi-column Layout</h3>
+                <p>This demonstrates a three-column layout with automatic content flow:</p>
+                
+                <div class="column-demo">
+                    <h3>Multi-column Article</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                    
+                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                    
+                    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Column Variations</h3>
+                <p>Different column configurations and styling options:</p>
+                
+                <div class="column-variations">
+                    <div class="demo-box column-2">
+                        <h4>Two Columns</h4>
+                        <p>This content is displayed in two columns with a moderate gap between them. It's perfect for shorter articles and content that doesn't need as much horizontal space.</p>
+                    </div>
+                    
+                    <div class="demo-box column-3">
+                        <h4>Three Columns</h4>
+                        <p>Three columns provide a good balance between readability and space efficiency. This is often used for newspaper-style layouts and long-form content.</p>
+                    </div>
+                    
+                    <div class="demo-box column-4">
+                        <h4>Four Columns</h4>
+                        <p>Four columns are ideal for wide screens and content that needs to be very compact. This works well for reference materials and technical documentation.</p>
+                    </div>
+                    
+                    <div class="demo-box column-auto">
+                        <h4>Auto Columns</h4>
+                        <p>Auto columns adjust the number of columns based on the available width. This content will automatically flow into as many columns as fit the container width.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Column Styling</h3>
+                <p>Customize the appearance of your columns:</p>
+                
+                <div class="column-variations">
+                    <div class="demo-box column-3 column-rules">
+                        <h4>Column Rules</h4>
+                        <p>This example shows columns with decorative rules between them. The rules help separate content and improve visual hierarchy.</p>
+                    </div>
+                    
+                    <div class="demo-box column-3 column-gaps">
+                        <h4>Wide Gaps</h4>
+                        <p>This example demonstrates wider gaps between columns, which can improve readability and give content more breathing room.</p>
+                    </div>
+                    
+                    <div class="demo-box column-3">
+                        <h4>Column Spans</h4>
+                        <div class="column-spans">This heading spans all columns</div>
+                        <p>Some content can span across all columns using the column-span property. This is useful for headings, images, and important announcements.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Column Breaks</h3>
+                <p>Control where content breaks between columns:</p>
+                
+                <div class="column-breaks">
+                    <div class="demo-box column-3">
+                        <h4>Break Control</h4>
+                        <p>This paragraph will flow normally between columns.</p>
+                        <p class="break-before-column">This paragraph will start a new column.</p>
+                        <p class="break-inside-avoid">This paragraph will avoid breaking inside, keeping the content together.</p>
+                        <p>This paragraph continues the normal flow.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Responsive Columns</h3>
+                <p>Columns that adapt to different screen sizes:</p>
+                
+                <div class="column-variations">
+                    <div class="demo-box responsive-columns">
+                        <h4>Responsive Columns</h4>
+                        <p>This content adapts to different screen sizes. On mobile devices, it displays in a single column. On tablets, it shows two columns. On desktop screens, it displays three columns.</p>
+                        <p>Resize your browser window to see how the column count changes based on the available width.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column-info">
+                <h4>Multi-column Properties</h4>
+                <ul>
+                    <li><strong>column-count:</strong> <code>number | auto</code> - Number of columns</li>
+                    <li><strong>column-width:</strong> <code>length | auto</code> - Width of each column</li>
+                    <li><strong>column-gap:</strong> <code>length</code> - Space between columns</li>
+                    <li><strong>column-rule:</strong> <code>width style color</code> - Line between columns</li>
+                    <li><strong>column-span:</strong> <code>none | all</code> - Span across columns</li>
+                    <li><strong>break-before:</strong> <code>auto | column | page</code> - Break before element</li>
+                    <li><strong>break-after:</strong> <code>auto | column | page</code> - Break after element</li>
+                    <li><strong>break-inside:</strong> <code>auto | avoid</code> - Break inside element</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Code</h2>
+            
+            <h3>HTML</h3>
+            <pre class="code-block"><code class="code-html">&lt;div class="column-demo"&gt;
+  &lt;h3&gt;Multi-column Article&lt;/h3&gt;
+  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit...&lt;/p&gt;
+  &lt;p&gt;Duis aute irure dolor in reprehenderit in voluptate...&lt;/p&gt;
+  &lt;p&gt;Sed ut perspiciatis unde omnis iste natus error...&lt;/p&gt;
+  &lt;p&gt;Nemo enim ipsam voluptatem quia voluptas sit...&lt;/p&gt;
+  &lt;p&gt;Neque porro quisquam est, qui dolorem ipsum...&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="demo-box column-3"&gt;
+  &lt;h4&gt;Three Columns&lt;/h4&gt;
+  &lt;p&gt;Three columns provide a good balance...&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="demo-box column-3 column-rules"&gt;
+  &lt;h4&gt;Column Rules&lt;/h4&gt;
+  &lt;p&gt;This example shows columns with decorative rules...&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+            <h3>CSS</h3>
+            <pre class="code-block"><code class="code-css">/* Basic multi-column layout */
+.column-demo {
+  column-count: 3;
+  column-gap: var(--space-6);
+  column-rule: 1px solid var(--border);
+  margin: var(--space-4) 0;
+  padding: var(--space-4);
+  background: var(--column-demo-bg);
+  border-radius: var(--radius-1);
+}
+
+.column-demo h3 {
+  column-span: all;
+  margin-bottom: var(--space-4);
+  color: var(--brand);
+  text-align: center;
+}
+
+/* Column variations */
+.column-2 { 
+  column-count: 2; 
+  column-gap: var(--space-4); 
+}
+
+.column-3 { 
+  column-count: 3; 
+  column-gap: var(--space-4); 
+}
+
+.column-4 { 
+  column-count: 4; 
+  column-gap: var(--space-3); 
+}
+
+.column-auto { 
+  column-count: auto; 
+  column-width: 200px; 
+  column-gap: var(--space-4); 
+}
+
+/* Column styling */
+.column-rules {
+  column-rule: 2px solid var(--brand);
+  column-rule-style: dashed;
+}
+
+.column-gaps {
+  column-gap: var(--space-8);
+}
+
+.column-spans {
+  column-span: all;
+  background: var(--brand-light);
+  padding: var(--space-2);
+  border-radius: var(--radius-1);
+  margin: var(--space-2) 0;
+  text-align: center;
+  font-weight: bold;
+  color: var(--brand);
+}
+
+/* Column breaks */
+.break-inside-avoid { break-inside: avoid; }
+.break-before-column { break-before: column; }
+.break-after-column { break-after: column; }
+
+/* Responsive columns */
+.responsive-columns {
+  column-count: 1;
+  column-gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .responsive-columns {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-columns {
+    column-count: 3;
+  }
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>Notes</h2>
+            <ul>
+                <li><strong>Column-count:</strong> Sets the number of columns (or use auto)</li>
+                <li><strong>Column-width:</strong> Sets the width of each column (or use auto)</li>
+                <li><strong>Column-gap:</strong> Controls spacing between columns</li>
+                <li><strong>Column-rule:</strong> Adds lines between columns</li>
+                <li><strong>Column-span:</strong> Allows elements to span across columns</li>
+                <li><strong>Break properties:</strong> Control where content breaks between columns</li>
+                <li><strong>Responsive design:</strong> Adjust column count for different screen sizes</li>
+                <li><strong>Content flow:</strong> Content automatically flows from one column to the next</li>
+                <li><strong>Browser support:</strong> Good support in modern browsers</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                <a href="links-states.html">← Previous: Link States</a> | 
+                <a href="../index.html">Back to Home</a> | 
+                <a href="pseudo-selectors.html">Next: Pseudo Selectors →</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

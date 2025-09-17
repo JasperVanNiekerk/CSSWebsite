@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Viewport Meta – Responsive Web Design – CSS Learning Hub</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/examples.css">
+    <style>
+        .example-viewport {
+            --viewport-demo-bg: #f8f9fa;
+        }
+        
+        .viewport-demo {
+            background: var(--viewport-demo-bg);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+            border-left: 4px solid var(--brand);
+        }
+        
+        .viewport-demo h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .viewport-demo code {
+            background: var(--bg);
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-1);
+            font-family: var(--font-mono);
+            font-size: var(--fs-sm);
+            color: var(--brand);
+        }
+        
+        .viewport-comparison {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-4);
+            margin: var(--space-4) 0;
+        }
+        
+        @media (min-width: 768px) {
+            .viewport-comparison {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .viewport-comparison .demo-box {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            border: 1px solid var(--border);
+        }
+        
+        .viewport-comparison h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .viewport-comparison .bad {
+            border-left: 4px solid var(--danger);
+        }
+        
+        .viewport-comparison .good {
+            border-left: 4px solid var(--success);
+        }
+        
+        .viewport-info {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+            border-left: 4px solid var(--brand);
+        }
+        
+        .viewport-info h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .viewport-info code {
+            background: var(--bg);
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-1);
+            font-family: var(--font-mono);
+            font-size: var(--fs-sm);
+            color: var(--brand);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html">CSS Learning Hub</a></h1>
+            <nav>
+                <a href="../index.html">Home</a> › 
+                <a href="../index.html#responsive">Responsive Web Design</a> › 
+                Viewport Meta
+            </nav>
+        </div>
+    </header>
+
+    <main class="container example-viewport">
+        <section>
+            <h1>Viewport Meta</h1>
+            <p>Learn about the viewport meta tag and its crucial role in responsive web design. This tag tells the browser how to control the page's dimensions and scaling on different devices.</p>
+        </section>
+
+        <section>
+            <h2>Live Demo</h2>
+            <div class="demo-area">
+                <h3>Viewport Meta Tag</h3>
+                <p>This page includes the viewport meta tag in its head section:</p>
+                
+                <div class="viewport-demo">
+                    <h4>Current Viewport Meta Tag</h4>
+                    <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code>
+                    <p>This tag ensures the page renders properly on mobile devices by setting the viewport width to the device width and preventing zooming.</p>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>With vs Without Viewport Meta</h3>
+                <p>Compare how pages behave with and without the viewport meta tag:</p>
+                
+                <div class="viewport-comparison">
+                    <div class="demo-box bad">
+                        <h4>Without Viewport Meta</h4>
+                        <p>❌ Page renders at desktop width on mobile</p>
+                        <p>❌ Users must zoom to read content</p>
+                        <p>❌ Poor mobile user experience</p>
+                        <p>❌ Content appears tiny on small screens</p>
+                    </div>
+                    
+                    <div class="demo-box good">
+                        <h4>With Viewport Meta</h4>
+                        <p>✅ Page adapts to device width</p>
+                        <p>✅ Content is readable without zooming</p>
+                        <p>✅ Good mobile user experience</p>
+                        <p>✅ Responsive design works properly</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="viewport-info">
+                <h4>Viewport Meta Tag Properties</h4>
+                <ul>
+                    <li><strong>width=device-width:</strong> Sets viewport width to device width</li>
+                    <li><strong>initial-scale=1:</strong> Sets initial zoom level to 100%</li>
+                    <li><strong>maximum-scale=1:</strong> Prevents zooming (use sparingly)</li>
+                    <li><strong>user-scalable=no:</strong> Disables user zooming (avoid for accessibility)</li>
+                    <li><strong>minimum-scale=1:</strong> Sets minimum zoom level</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Code</h2>
+            
+            <h3>HTML</h3>
+            <pre class="code-block"><code class="code-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+    &lt;title&gt;Your Page Title&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Your content here --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>CSS</h3>
+            <pre class="code-block"><code class="code-css">/* No special CSS needed for viewport meta tag */
+/* The viewport meta tag works with your existing CSS */
+
+/* Example responsive CSS that works with viewport meta */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>Notes</h2>
+            <ul>
+                <li><strong>Essential for mobile:</strong> Always include viewport meta tag</li>
+                <li><strong>Place in head:</strong> Must be in the &lt;head&gt; section</li>
+                <li><strong>Standard syntax:</strong> <code>width=device-width, initial-scale=1</code></li>
+                <li><strong>Accessibility:</strong> Avoid disabling user zooming</li>
+                <li><strong>Testing:</strong> Test on actual mobile devices</li>
+                <li><strong>Browser support:</strong> Supported by all modern browsers</li>
+                <li><strong>Performance:</strong> No impact on page load speed</li>
+                <li><strong>SEO:</strong> Google considers mobile-friendliness in rankings</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                <a href="css-variables.html">← Previous: CSS Variables</a> | 
+                <a href="../index.html">Back to Home</a> | 
+                <a href="fluid-layouts.html">Next: Fluid Layouts →</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
