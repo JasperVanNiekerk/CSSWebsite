@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Responsive Layout – Responsive Web Design – CSS Learning Hub</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/examples.css">
+    <style>
+        .example-responsive-layout {
+            --layout-demo-bg: #f8f9fa;
+        }
+        
+        .layout-demo {
+            display: flex;
+            gap: var(--space-4);
+            margin: var(--space-4) 0;
+            min-height: 200px;
+        }
+        
+        .layout-demo .sidebar {
+            flex: 0 0 200px;
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            border: 1px solid var(--border);
+        }
+        
+        .layout-demo .content {
+            flex: 1;
+            background: var(--bg);
+            padding: var(--space-4);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-1);
+        }
+        
+        .layout-demo .sidebar h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .layout-demo .content h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        @media (max-width: 767px) {
+            .layout-demo {
+                flex-direction: column;
+            }
+            
+            .layout-demo .sidebar {
+                flex: none;
+            }
+        }
+        
+        .layout-info {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+            border-left: 4px solid var(--brand);
+        }
+        
+        .layout-info h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html">CSS Learning Hub</a></h1>
+            <nav>
+                <a href="../index.html">Home</a> › 
+                <a href="../index.html#responsive">Responsive Web Design</a> › 
+                Responsive Layout
+            </nav>
+        </div>
+    </header>
+
+    <main class="container example-responsive-layout">
+        <section>
+            <h1>Responsive Layout</h1>
+            <p>Learn how to create complete responsive layouts that adapt to different screen sizes. This example shows a sidebar and main content area that stacks on mobile devices.</p>
+        </section>
+
+        <section>
+            <h2>Live Demo</h2>
+            <div class="demo-area">
+                <h3>Responsive Sidebar Layout</h3>
+                <p>This layout demonstrates a sidebar and main content area that adapts to different screen sizes:</p>
+                
+                <div class="layout-demo">
+                    <div class="sidebar">
+                        <h4>Sidebar</h4>
+                        <p>This sidebar contains navigation and secondary content. On mobile devices, it will stack above the main content.</p>
+                        <ul>
+                            <li>Navigation Item 1</li>
+                            <li>Navigation Item 2</li>
+                            <li>Navigation Item 3</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="content">
+                        <h4>Main Content</h4>
+                        <p>This is the main content area. It takes up the remaining space and adapts to different screen sizes. On desktop, it sits next to the sidebar. On mobile, it stacks below.</p>
+                        <p>Resize your browser window to see how the layout changes from desktop to mobile view.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layout-info">
+                <h4>Responsive Layout Techniques</h4>
+                <ul>
+                    <li><strong>Flexbox:</strong> Use <code>display: flex</code> for flexible layouts</li>
+                    <li><strong>Flex properties:</strong> <code>flex: 1</code> for growing content, <code>flex: 0 0 200px</code> for fixed sidebar</li>
+                    <li><strong>Media queries:</strong> Change layout direction with <code>flex-direction: column</code></li>
+                    <li><strong>Gap property:</strong> Use <code>gap</code> for consistent spacing</li>
+                    <li><strong>Min-height:</strong> Ensure layout has minimum height</li>
+                    <li><strong>Test breakpoints:</strong> Check layout at different screen sizes</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Code</h2>
+            
+            <h3>HTML</h3>
+            <pre class="code-block"><code class="code-html">&lt;div class="layout-demo"&gt;
+  &lt;div class="sidebar"&gt;
+    &lt;h4&gt;Sidebar&lt;/h4&gt;
+    &lt;p&gt;This sidebar contains navigation...&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Navigation Item 1&lt;/li&gt;
+      &lt;li&gt;Navigation Item 2&lt;/li&gt;
+      &lt;li&gt;Navigation Item 3&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="content"&gt;
+    &lt;h4&gt;Main Content&lt;/h4&gt;
+    &lt;p&gt;This is the main content area...&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+            <h3>CSS</h3>
+            <pre class="code-block"><code class="code-css">.layout-demo {
+  display: flex;
+  gap: var(--space-4);
+  margin: var(--space-4) 0;
+  min-height: 200px;
+}
+
+.layout-demo .sidebar {
+  flex: 0 0 200px;
+  background: var(--surface);
+  padding: var(--space-4);
+  border-radius: var(--radius-1);
+  border: 1px solid var(--border);
+}
+
+.layout-demo .content {
+  flex: 1;
+  background: var(--bg);
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-1);
+}
+
+@media (max-width: 767px) {
+  .layout-demo {
+    flex-direction: column;
+  }
+  
+  .layout-demo .sidebar {
+    flex: none;
+  }
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>Notes</h2>
+            <ul>
+                <li><strong>Flexbox layout:</strong> Use flexbox for flexible, responsive layouts</li>
+                <li><strong>Sidebar + content:</strong> Common pattern for web layouts</li>
+                <li><strong>Mobile stacking:</strong> Stack elements vertically on small screens</li>
+                <li><strong>Flex properties:</strong> Control how elements grow and shrink</li>
+                <li><strong>Gap spacing:</strong> Use gap property for consistent spacing</li>
+                <li><strong>Test breakpoints:</strong> Check layout at different screen sizes</li>
+                <li><strong>Accessibility:</strong> Ensure layout works with screen readers</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                <a href="mobile-first.html">← Previous: Mobile-first</a> | 
+                <a href="../index.html">Back to Home</a> | 
+                <a href="accessibility-performance.html">Next: Accessibility & Performance →</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

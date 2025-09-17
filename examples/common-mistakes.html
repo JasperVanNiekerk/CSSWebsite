@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Common Mistakes – Responsive Web Design – CSS Learning Hub</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/examples.css">
+    <style>
+        .example-mistakes {
+            --mistakes-demo-bg: #f8f9fa;
+        }
+        
+        .mistakes-demo {
+            background: var(--mistakes-demo-bg);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+            border-left: 4px solid var(--brand);
+        }
+        
+        .mistakes-demo h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .mistakes-demo .bad {
+            border-left: 4px solid var(--danger);
+            padding-left: var(--space-4);
+            margin: var(--space-2) 0;
+        }
+        
+        .mistakes-demo .good {
+            border-left: 4px solid var(--success);
+            padding-left: var(--space-4);
+            margin: var(--space-2) 0;
+        }
+        
+        .mistakes-demo .bad h5 {
+            color: var(--danger);
+        }
+        
+        .mistakes-demo .good h5 {
+            color: var(--success);
+        }
+        
+        .mistakes-demo code {
+            background: var(--bg);
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-1);
+            font-family: var(--font-mono);
+            font-size: var(--fs-sm);
+            color: var(--brand);
+        }
+        
+        .mistakes-demo .demo-box {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-2) 0;
+            border: 1px solid var(--border);
+        }
+        
+        .mistakes-demo .demo-box h5 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .mistakes-demo .fixed-width {
+            width: 800px;
+            background: var(--brand-light);
+            padding: var(--space-2);
+            border-radius: var(--radius-1);
+            margin: var(--space-2) 0;
+        }
+        
+        .mistakes-demo .responsive-width {
+            max-width: 100%;
+            background: var(--brand-light);
+            padding: var(--space-2);
+            border-radius: var(--radius-1);
+            margin: var(--space-2) 0;
+        }
+        
+        .mistakes-demo .no-viewport {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-2) 0;
+            border: 1px solid var(--border);
+        }
+        
+        .mistakes-demo .with-viewport {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-2) 0;
+            border: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html">CSS Learning Hub</a></h1>
+            <nav>
+                <a href="../index.html">Home</a> › 
+                <a href="../index.html#responsive">Responsive Web Design</a> › 
+                Common Mistakes
+            </nav>
+        </div>
+    </header>
+
+    <main class="container example-mistakes">
+        <section>
+            <h1>Common Mistakes</h1>
+            <p>Learn from common responsive design mistakes and how to avoid them. Understanding these pitfalls will help you create better, more robust responsive designs.</p>
+        </section>
+
+        <section>
+            <h2>Live Demo</h2>
+            <div class="demo-area">
+                <h3>Fixed Widths vs Responsive Widths</h3>
+                <p>Compare fixed widths with responsive approaches:</p>
+                
+                <div class="mistakes-demo">
+                    <div class="bad">
+                        <h5>❌ Fixed Width (Bad)</h5>
+                        <div class="demo-box">
+                            <h5>Fixed 800px width</h5>
+                            <div class="fixed-width">
+                                This box has a fixed width of 800px and will cause horizontal scrolling on smaller screens.
+                            </div>
+                            <code>width: 800px;</code>
+                        </div>
+                    </div>
+                    
+                    <div class="good">
+                        <h5>✅ Responsive Width (Good)</h5>
+                        <div class="demo-box">
+                            <h5>Max-width: 100%</h5>
+                            <div class="responsive-width">
+                                This box uses max-width: 100% and adapts to different screen sizes.
+                            </div>
+                            <code>max-width: 100%;</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Missing Viewport Meta Tag</h3>
+                <p>Compare pages with and without the viewport meta tag:</p>
+                
+                <div class="mistakes-demo">
+                    <div class="bad">
+                        <h5>❌ Without Viewport Meta (Bad)</h5>
+                        <div class="demo-box">
+                            <h5>No viewport meta tag</h5>
+                            <div class="no-viewport">
+                                <p>This page would render at desktop width on mobile devices, requiring users to zoom to read content.</p>
+                                <code>&lt;!-- Missing viewport meta tag --&gt;</code>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="good">
+                        <h5>✅ With Viewport Meta (Good)</h5>
+                        <div class="demo-box">
+                            <h5>Proper viewport meta tag</h5>
+                            <div class="with-viewport">
+                                <p>This page includes the viewport meta tag and renders properly on mobile devices.</p>
+                                <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Common CSS Mistakes</h3>
+                <p>These are common mistakes to avoid in responsive design:</p>
+                
+                <div class="mistakes-demo">
+                    <h4>Common Mistakes to Avoid</h4>
+                    <ul>
+                        <li><strong>Fixed widths:</strong> Use relative units (%, em, rem) instead of fixed pixels</li>
+                        <li><strong>Missing viewport meta:</strong> Always include the viewport meta tag</li>
+                        <li><strong>Non-responsive images:</strong> Use <code>max-width: 100%</code> for images</li>
+                        <li><strong>Too many breakpoints:</strong> Start with mobile-first, add breakpoints as needed</li>
+                        <li><strong>Ignoring touch targets:</strong> Make buttons and links touch-friendly (44px minimum)</li>
+                        <li><strong>Poor contrast:</strong> Ensure sufficient color contrast for readability</li>
+                        <li><strong>Not testing on devices:</strong> Always test on actual mobile devices</li>
+                        <li><strong>Overcomplicating:</strong> Keep designs simple and focused</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Code</h2>
+            
+            <h3>HTML</h3>
+            <pre class="code-block"><code class="code-html">&lt;!-- Bad: Fixed width --&gt;
+&lt;div class="fixed-width"&gt;
+  This box has a fixed width of 800px...
+&lt;/div&gt;
+
+&lt;!-- Good: Responsive width --&gt;
+&lt;div class="responsive-width"&gt;
+  This box uses max-width: 100%...
+&lt;/div&gt;
+
+&lt;!-- Bad: Missing viewport meta --&gt;
+&lt;!-- No viewport meta tag --&gt;
+
+&lt;!-- Good: With viewport meta --&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code></pre>
+
+            <h3>CSS</h3>
+            <pre class="code-block"><code class="code-css">/* Bad: Fixed width */
+.fixed-width {
+  width: 800px;
+  background: var(--brand-light);
+  padding: var(--space-2);
+  border-radius: var(--radius-1);
+  margin: var(--space-2) 0;
+}
+
+/* Good: Responsive width */
+.responsive-width {
+  max-width: 100%;
+  background: var(--brand-light);
+  padding: var(--space-2);
+  border-radius: var(--radius-1);
+  margin: var(--space-2) 0;
+}
+
+/* Bad: Fixed height */
+.bad-height {
+  height: 400px;
+}
+
+/* Good: Responsive height */
+.good-height {
+  min-height: 200px;
+  height: auto;
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>Notes</h2>
+            <ul>
+                <li><strong>Avoid fixed widths:</strong> Use relative units for responsive design</li>
+                <li><strong>Include viewport meta:</strong> Essential for mobile rendering</li>
+                <li><strong>Test on devices:</strong> Always test on actual mobile devices</li>
+                <li><strong>Use relative units:</strong> %, em, rem instead of fixed pixels</li>
+                <li><strong>Make touch targets large:</strong> Minimum 44px for touch interfaces</li>
+                <li><strong>Ensure good contrast:</strong> Test color combinations for readability</li>
+                <li><strong>Keep it simple:</strong> Don't overcomplicate your designs</li>
+                <li><strong>Progressive enhancement:</strong> Start with basic functionality, add enhancements</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                <a href="accessibility-performance.html">← Previous: Accessibility & Performance</a> | 
+                <a href="../index.html">Back to Home</a> | 
+                <a href="../index.html">Back to Home</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

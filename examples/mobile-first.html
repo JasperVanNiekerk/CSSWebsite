@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mobile-first – Responsive Web Design – CSS Learning Hub</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/examples.css">
+    <style>
+        .example-mobile-first {
+            --mobile-demo-bg: #f8f9fa;
+        }
+        
+        .mobile-demo {
+            background: var(--mobile-demo-bg);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+            border-left: 4px solid var(--brand);
+        }
+        
+        .mobile-demo h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .mobile-layout {
+            display: grid;
+            gap: var(--space-4);
+            margin: var(--space-4) 0;
+        }
+        
+        .mobile-layout .item {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+        
+        .mobile-layout .item h5 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        /* Mobile-first approach */
+        .mobile-layout {
+            grid-template-columns: 1fr;
+        }
+        
+        /* Tablet styles */
+        @media (min-width: 768px) {
+            .mobile-layout {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        /* Desktop styles */
+        @media (min-width: 1024px) {
+            .mobile-layout {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+        
+        .mobile-info {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+            border-left: 4px solid var(--brand);
+        }
+        
+        .mobile-info h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html">CSS Learning Hub</a></h1>
+            <nav>
+                <a href="../index.html">Home</a> › 
+                <a href="../index.html#responsive">Responsive Web Design</a> › 
+                Mobile-first
+            </nav>
+        </div>
+    </header>
+
+    <main class="container example-mobile-first">
+        <section>
+            <h1>Mobile-first</h1>
+            <p>Learn how to build responsive designs starting from mobile and enhancing upward. Mobile-first design ensures your site works well on all devices and provides better performance.</p>
+        </section>
+
+        <section>
+            <h2>Live Demo</h2>
+            <div class="demo-area">
+                <h3>Mobile-first Layout</h3>
+                <p>This layout starts with mobile styles and enhances for larger screens:</p>
+                
+                <div class="mobile-layout">
+                    <div class="item">
+                        <h5>Item 1</h5>
+                        <p>Mobile: Full width</p>
+                    </div>
+                    <div class="item">
+                        <h5>Item 2</h5>
+                        <p>Tablet: 2 columns</p>
+                    </div>
+                    <div class="item">
+                        <h5>Item 3</h5>
+                        <p>Desktop: 3 columns</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mobile-info">
+                <h4>Mobile-first Benefits</h4>
+                <ul>
+                    <li><strong>Better performance</strong> - Smaller initial CSS bundle</li>
+                    <li><strong>Progressive enhancement</strong> - Start simple, add complexity</li>
+                    <li><strong>Touch-friendly</strong> - Designed for mobile interactions</li>
+                    <li><strong>Faster loading</strong> - Optimized for mobile networks</li>
+                    <li><strong>Better UX</strong> - Works well on all devices</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Code</h2>
+            
+            <h3>HTML</h3>
+            <pre class="code-block"><code class="code-html">&lt;div class="mobile-layout"&gt;
+  &lt;div class="item"&gt;
+    &lt;h5&gt;Item 1&lt;/h5&gt;
+    &lt;p&gt;Mobile: Full width&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="item"&gt;
+    &lt;h5&gt;Item 2&lt;/h5&gt;
+    &lt;p&gt;Tablet: 2 columns&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="item"&gt;
+    &lt;h5&gt;Item 3&lt;/h5&gt;
+    &lt;p&gt;Desktop: 3 columns&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+            <h3>CSS</h3>
+            <pre class="code-block"><code class="code-css">/* Mobile-first base styles */
+.mobile-layout {
+  display: grid;
+  gap: var(--space-4);
+  margin: var(--space-4) 0;
+  grid-template-columns: 1fr; /* Mobile: 1 column */
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+  .mobile-layout {
+    grid-template-columns: 1fr 1fr; /* Tablet: 2 columns */
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+  .mobile-layout {
+    grid-template-columns: 1fr 1fr 1fr; /* Desktop: 3 columns */
+  }
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>Notes</h2>
+            <ul>
+                <li><strong>Start mobile:</strong> Design for smallest screen first</li>
+                <li><strong>Progressive enhancement:</strong> Add features for larger screens</li>
+                <li><strong>min-width media queries:</strong> Use min-width, not max-width</li>
+                <li><strong>Touch targets:</strong> Make buttons and links touch-friendly</li>
+                <li><strong>Performance:</strong> Optimize for mobile networks</li>
+                <li><strong>Content priority:</strong> Show most important content first</li>
+                <li><strong>Test on devices:</strong> Always test on actual mobile devices</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                <a href="flexible-images.html">← Previous: Flexible Images</a> | 
+                <a href="../index.html">Back to Home</a> | 
+                <a href="responsive-layout.html">Next: Responsive Layout →</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

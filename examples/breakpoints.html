@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Breakpoints – Responsive Web Design – CSS Learning Hub</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/examples.css">
+    <style>
+        .example-breakpoints {
+            --breakpoint-demo-bg: #f8f9fa;
+        }
+        
+        .breakpoint-demo {
+            background: var(--breakpoint-demo-bg);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+            border-left: 4px solid var(--brand);
+        }
+        
+        .breakpoint-demo h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .breakpoint-demo code {
+            background: var(--bg);
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-1);
+            font-family: var(--font-mono);
+            font-size: var(--fs-sm);
+            color: var(--brand);
+        }
+        
+        .breakpoint-examples {
+            display: grid;
+            gap: var(--space-4);
+            margin: var(--space-4) 0;
+        }
+        
+        .breakpoint-examples .demo-box {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            border: 1px solid var(--border);
+        }
+        
+        .breakpoint-examples h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .breakpoint-examples h5 {
+            color: var(--text);
+            margin-bottom: var(--space-2);
+        }
+        
+        .breakpoint-examples p {
+            margin-bottom: var(--space-2);
+        }
+        
+        .breakpoint-examples .mobile {
+            background: var(--brand-light);
+            color: var(--brand);
+            font-weight: bold;
+        }
+        
+        .breakpoint-examples .tablet {
+            background: var(--surface);
+            color: var(--text);
+        }
+        
+        .breakpoint-examples .desktop {
+            background: var(--bg);
+            color: var(--text);
+        }
+        
+        .breakpoint-info {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+            border-left: 4px solid var(--brand);
+        }
+        
+        .breakpoint-info h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .breakpoint-info code {
+            background: var(--bg);
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-1);
+            font-family: var(--font-mono);
+            font-size: var(--fs-sm);
+            color: var(--brand);
+        }
+        
+        .breakpoint-visual {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-2);
+            margin: var(--space-4) 0;
+        }
+        
+        .breakpoint-visual .breakpoint-bar {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-1);
+            font-weight: bold;
+            color: white;
+        }
+        
+        .breakpoint-visual .mobile-bar {
+            background: var(--brand);
+        }
+        
+        .breakpoint-visual .tablet-bar {
+            background: var(--success);
+        }
+        
+        .breakpoint-visual .desktop-bar {
+            background: var(--warning);
+            color: var(--text);
+        }
+        
+        @media (min-width: 768px) {
+            .breakpoint-visual {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .breakpoint-visual {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html">CSS Learning Hub</a></h1>
+            <nav>
+                <a href="../index.html">Home</a> › 
+                <a href="../index.html#responsive">Responsive Web Design</a> › 
+                Breakpoints
+            </nav>
+        </div>
+    </header>
+
+    <main class="container example-breakpoints">
+        <section>
+            <h1>Breakpoints</h1>
+            <p>Learn how to define and use consistent breakpoints for responsive design. Breakpoints are the screen sizes where your layout changes to accommodate different devices and screen sizes.</p>
+        </section>
+
+        <section>
+            <h2>Live Demo</h2>
+            <div class="demo-area">
+                <h3>Common Breakpoint Values</h3>
+                <p>These are the most commonly used breakpoint values in responsive design:</p>
+                
+                <div class="breakpoint-demo">
+                    <h4>Standard Breakpoints</h4>
+                    <ul>
+                        <li><strong>Mobile:</strong> <code>0px - 767px</code> (phones)</li>
+                        <li><strong>Tablet:</strong> <code>768px - 1023px</code> (tablets)</li>
+                        <li><strong>Desktop:</strong> <code>1024px+</code> (desktops and laptops)</li>
+                        <li><strong>Large Desktop:</strong> <code>1200px+</code> (large screens)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Breakpoint Visualization</h3>
+                <p>This visual representation shows how breakpoints work:</p>
+                
+                <div class="breakpoint-visual">
+                    <div class="breakpoint-bar mobile-bar">
+                        Mobile (0px - 767px)
+                    </div>
+                    <div class="breakpoint-bar tablet-bar">
+                        Tablet (768px - 1023px)
+                    </div>
+                    <div class="breakpoint-bar desktop-bar">
+                        Desktop (1024px+)
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Breakpoint Examples</h3>
+                <p>Different approaches to defining and using breakpoints:</p>
+                
+                <div class="breakpoint-examples">
+                    <div class="demo-box">
+                        <h4>Mobile-First Approach</h4>
+                        <h5>Start with mobile, enhance upward</h5>
+                        <p>This approach starts with mobile styles and adds enhancements for larger screens.</p>
+                        <code>@media (min-width: 768px) { ... }</code>
+                    </div>
+                    
+                    <div class="demo-box">
+                        <h4>Desktop-First Approach</h4>
+                        <h5>Start with desktop, adapt downward</h5>
+                        <p>This approach starts with desktop styles and adapts for smaller screens.</p>
+                        <code>@media (max-width: 767px) { ... }</code>
+                    </div>
+                    
+                    <div class="demo-box">
+                        <h4>Range-Based Breakpoints</h4>
+                        <h5>Define specific ranges</h5>
+                        <p>This approach defines specific ranges for different device types.</p>
+                        <code>@media (min-width: 768px) and (max-width: 1023px) { ... }</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Breakpoint Best Practices</h3>
+                <p>Follow these guidelines for effective breakpoint usage:</p>
+                
+                <div class="breakpoint-info">
+                    <h4>Breakpoint Guidelines</h4>
+                    <ul>
+                        <li><strong>Use consistent values:</strong> Stick to a standard set of breakpoints</li>
+                        <li><strong>Mobile-first:</strong> Start with mobile and enhance upward</li>
+                        <li><strong>Test on devices:</strong> Always test on actual devices, not just browser resizing</li>
+                        <li><strong>Content-driven:</strong> Let content determine breakpoints, not device sizes</li>
+                        <li><strong>Use relative units:</strong> Prefer em/rem over pixels for breakpoints</li>
+                        <li><strong>Document breakpoints:</strong> Keep a record of your breakpoint values</li>
+                        <li><strong>Consider orientation:</strong> Test both portrait and landscape orientations</li>
+                        <li><strong>Future-proof:</strong> Choose breakpoints that will work with future devices</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Code</h2>
+            
+            <h3>HTML</h3>
+            <pre class="code-block"><code class="code-html">&lt;div class="breakpoint-visual"&gt;
+  &lt;div class="breakpoint-bar mobile-bar"&gt;
+    Mobile (0px - 767px)
+  &lt;/div&gt;
+  &lt;div class="breakpoint-bar tablet-bar"&gt;
+    Tablet (768px - 1023px)
+  &lt;/div&gt;
+  &lt;div class="breakpoint-bar desktop-bar"&gt;
+    Desktop (1024px+)
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+            <h3>CSS</h3>
+            <pre class="code-block"><code class="code-css">/* Mobile-first breakpoints */
+.breakpoint-visual {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+  margin: var(--space-4) 0;
+}
+
+/* Tablet breakpoint */
+@media (min-width: 768px) {
+  .breakpoint-visual {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Desktop breakpoint */
+@media (min-width: 1024px) {
+  .breakpoint-visual {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* Breakpoint bar styles */
+.breakpoint-bar {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-1);
+  font-weight: bold;
+  color: white;
+}
+
+.mobile-bar {
+  background: var(--brand);
+}
+
+.tablet-bar {
+  background: var(--success);
+}
+
+.desktop-bar {
+  background: var(--warning);
+  color: var(--text);
+}
+
+/* Common breakpoint values */
+/* Mobile: 0px - 767px */
+/* Tablet: 768px - 1023px */
+/* Desktop: 1024px+ */
+/* Large Desktop: 1200px+ */</code></pre>
+        </section>
+
+        <section>
+            <h2>Notes</h2>
+            <ul>
+                <li><strong>Standard breakpoints:</strong> 768px (tablet), 1024px (desktop), 1200px (large desktop)</li>
+                <li><strong>Mobile-first:</strong> Use min-width media queries, start with mobile styles</li>
+                <li><strong>Content-driven:</strong> Let your content determine breakpoints, not device sizes</li>
+                <li><strong>Consistent values:</strong> Use the same breakpoints throughout your project</li>
+                <li><strong>Test on devices:</strong> Always test on actual devices, not just browser resizing</li>
+                <li><strong>Relative units:</strong> Consider using em/rem for breakpoints for better scalability</li>
+                <li><strong>Document breakpoints:</strong> Keep a record of your breakpoint values and decisions</li>
+                <li><strong>Future-proof:</strong> Choose breakpoints that will work with future devices</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                <a href="media-queries.html">← Previous: Media Queries</a> | 
+                <a href="../index.html">Back to Home</a> | 
+                <a href="mobile-first.html">Next: Mobile-first →</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

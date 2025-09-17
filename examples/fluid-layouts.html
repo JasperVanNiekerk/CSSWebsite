@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fluid Layouts – Responsive Web Design – CSS Learning Hub</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/examples.css">
+    <style>
+        .example-fluid {
+            --fluid-demo-bg: #f8f9fa;
+        }
+        
+        .fluid-demo {
+            background: var(--fluid-demo-bg);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+            border-left: 4px solid var(--brand);
+        }
+        
+        .fluid-demo h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .flex-container {
+            display: flex;
+            gap: var(--space-4);
+            margin: var(--space-4) 0;
+            flex-wrap: wrap;
+        }
+        
+        .flex-item {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            border: 1px solid var(--border);
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .flex-item h5 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .percentage-demo {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: var(--space-4);
+            margin: var(--space-4) 0;
+        }
+        
+        .percentage-item {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+        
+        .percentage-item h5 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .percentage-item.one-third { background: var(--brand-light); }
+        .percentage-item.two-thirds { background: var(--surface); }
+        .percentage-item.one-third:last-child { background: var(--brand-light); }
+        
+        .responsive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-4);
+            margin: var(--space-4) 0;
+        }
+        
+        .grid-item {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            border: 1px solid var(--border);
+        }
+        
+        .grid-item h5 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .fluid-info {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+            border-left: 4px solid var(--brand);
+        }
+        
+        .fluid-info h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .fluid-info code {
+            background: var(--bg);
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-1);
+            font-family: var(--font-mono);
+            font-size: var(--fs-sm);
+            color: var(--brand);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html">CSS Learning Hub</a></h1>
+            <nav>
+                <a href="../index.html">Home</a> › 
+                <a href="../index.html#responsive">Responsive Web Design</a> › 
+                Fluid Layouts
+            </nav>
+        </div>
+    </header>
+
+    <main class="container example-fluid">
+        <section>
+            <h1>Fluid Layouts</h1>
+            <p>Learn how to create flexible layouts that adapt to different screen sizes using percentage-based widths, flexbox, and CSS Grid. Fluid layouts are essential for responsive web design.</p>
+        </section>
+
+        <section>
+            <h2>Live Demo</h2>
+            <div class="demo-area">
+                <h3>Flexbox Fluid Layout</h3>
+                <p>This layout uses flexbox with flexible items that grow and shrink based on available space:</p>
+                
+                <div class="flex-container">
+                    <div class="flex-item">
+                        <h5>Flex Item 1</h5>
+                        <p>This item grows and shrinks with the container. It has a minimum width of 200px.</p>
+                    </div>
+                    <div class="flex-item">
+                        <h5>Flex Item 2</h5>
+                        <p>All flex items share the available space equally. They wrap to new lines on smaller screens.</p>
+                    </div>
+                    <div class="flex-item">
+                        <h5>Flex Item 3</h5>
+                        <p>Try resizing your browser window to see how the items adapt to different widths.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Percentage-Based Grid</h3>
+                <p>This layout uses CSS Grid with fractional units for responsive columns:</p>
+                
+                <div class="percentage-demo">
+                    <div class="percentage-item one-third">
+                        <h5>1fr (33%)</h5>
+                        <p>One-third of the available width</p>
+                    </div>
+                    <div class="percentage-item two-thirds">
+                        <h5>2fr (66%)</h5>
+                        <p>Two-thirds of the available width</p>
+                    </div>
+                    <div class="percentage-item one-third">
+                        <h5>1fr (33%)</h5>
+                        <p>One-third of the available width</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Auto-Fit Responsive Grid</h3>
+                <p>This grid automatically adjusts the number of columns based on available space:</p>
+                
+                <div class="responsive-grid">
+                    <div class="grid-item">
+                        <h5>Grid Item 1</h5>
+                        <p>Minimum width of 250px, grows to fill available space</p>
+                    </div>
+                    <div class="grid-item">
+                        <h5>Grid Item 2</h5>
+                        <p>Items automatically wrap to new rows when needed</p>
+                    </div>
+                    <div class="grid-item">
+                        <h5>Grid Item 3</h5>
+                        <p>Perfect for card layouts and content grids</p>
+                    </div>
+                    <div class="grid-item">
+                        <h5>Grid Item 4</h5>
+                        <p>No media queries needed for basic responsiveness</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fluid-info">
+                <h4>Fluid Layout Techniques</h4>
+                <ul>
+                    <li><strong>Percentage widths:</strong> <code>width: 50%</code> for relative sizing</li>
+                    <li><strong>Flexbox:</strong> <code>display: flex</code> with <code>flex: 1</code> for flexible items</li>
+                    <li><strong>CSS Grid:</strong> <code>grid-template-columns: 1fr 2fr 1fr</code> for fractional units</li>
+                    <li><strong>Auto-fit:</strong> <code>repeat(auto-fit, minmax(250px, 1fr))</code> for responsive grids</li>
+                    <li><strong>Max-width:</strong> <code>max-width: 1200px</code> to prevent layouts from becoming too wide</li>
+                    <li><strong>Min-width:</strong> <code>min-width: 200px</code> to prevent items from becoming too narrow</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Code</h2>
+            
+            <h3>HTML</h3>
+            <pre class="code-block"><code class="code-html">&lt;div class="flex-container"&gt;
+  &lt;div class="flex-item"&gt;
+    &lt;h5&gt;Flex Item 1&lt;/h5&gt;
+    &lt;p&gt;This item grows and shrinks with the container...&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="flex-item"&gt;
+    &lt;h5&gt;Flex Item 2&lt;/h5&gt;
+    &lt;p&gt;All flex items share the available space equally...&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="flex-item"&gt;
+    &lt;h5&gt;Flex Item 3&lt;/h5&gt;
+    &lt;p&gt;Try resizing your browser window...&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="percentage-demo"&gt;
+  &lt;div class="percentage-item one-third"&gt;
+    &lt;h5&gt;1fr (33%)&lt;/h5&gt;
+    &lt;p&gt;One-third of the available width&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="percentage-item two-thirds"&gt;
+    &lt;h5&gt;2fr (66%)&lt;/h5&gt;
+    &lt;p&gt;Two-thirds of the available width&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="percentage-item one-third"&gt;
+    &lt;h5&gt;1fr (33%)&lt;/h5&gt;
+    &lt;p&gt;One-third of the available width&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+            <h3>CSS</h3>
+            <pre class="code-block"><code class="code-css">/* Flexbox fluid layout */
+.flex-container {
+  display: flex;
+  gap: var(--space-4);
+  margin: var(--space-4) 0;
+  flex-wrap: wrap;
+}
+
+.flex-item {
+  background: var(--surface);
+  padding: var(--space-4);
+  border-radius: var(--radius-1);
+  border: 1px solid var(--border);
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Percentage-based grid */
+.percentage-demo {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: var(--space-4);
+  margin: var(--space-4) 0;
+}
+
+.percentage-item {
+  background: var(--surface);
+  padding: var(--space-4);
+  border-radius: var(--radius-1);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+/* Auto-fit responsive grid */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-4);
+  margin: var(--space-4) 0;
+}
+
+.grid-item {
+  background: var(--surface);
+  padding: var(--space-4);
+  border-radius: var(--radius-1);
+  border: 1px solid var(--border);
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>Notes</h2>
+            <ul>
+                <li><strong>Use relative units:</strong> %, fr, em, rem instead of fixed pixels</li>
+                <li><strong>Flexbox:</strong> Great for one-dimensional layouts (rows or columns)</li>
+                <li><strong>CSS Grid:</strong> Perfect for two-dimensional layouts</li>
+                <li><strong>Auto-fit:</strong> Automatically adjusts number of columns</li>
+                <li><strong>Min-width:</strong> Prevent items from becoming too narrow</li>
+                <li><strong>Max-width:</strong> Prevent layouts from becoming too wide</li>
+                <li><strong>Gap property:</strong> Use for consistent spacing between items</li>
+                <li><strong>Test thoroughly:</strong> Check on different screen sizes</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                <a href="viewport-meta.html">← Previous: Viewport Meta</a> | 
+                <a href="../index.html">Back to Home</a> | 
+                <a href="flexible-images.html">Next: Flexible Images →</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

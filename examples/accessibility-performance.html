@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Accessibility & Performance – Responsive Web Design – CSS Learning Hub</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/examples.css">
+    <style>
+        .example-accessibility {
+            --accessibility-demo-bg: #f8f9fa;
+        }
+        
+        .accessibility-demo {
+            background: var(--accessibility-demo-bg);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+            border-left: 4px solid var(--brand);
+        }
+        
+        .accessibility-demo h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .accessibility-demo .good {
+            border-left: 4px solid var(--success);
+            padding-left: var(--space-4);
+            margin: var(--space-2) 0;
+        }
+        
+        .accessibility-demo .bad {
+            border-left: 4px solid var(--danger);
+            padding-left: var(--space-4);
+            margin: var(--space-2) 0;
+        }
+        
+        .reduced-motion-demo {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease;
+        }
+        
+        .reduced-motion-demo:hover {
+            transform: translateY(-2px);
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            .reduced-motion-demo {
+                transition: none;
+            }
+            
+            .reduced-motion-demo:hover {
+                transform: none;
+            }
+        }
+        
+        .contrast-demo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-4);
+            margin: var(--space-4) 0;
+        }
+        
+        .contrast-demo .demo-box {
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            border: 1px solid var(--border);
+        }
+        
+        .contrast-demo .good-contrast {
+            background: var(--bg);
+            color: var(--text);
+        }
+        
+        .contrast-demo .bad-contrast {
+            background: #f0f0f0;
+            color: #999;
+        }
+        
+        .performance-demo {
+            background: var(--surface);
+            padding: var(--space-4);
+            border-radius: var(--radius-1);
+            margin: var(--space-4) 0;
+            border: 1px solid var(--border);
+        }
+        
+        .performance-demo h4 {
+            color: var(--brand);
+            margin-bottom: var(--space-2);
+        }
+        
+        .performance-demo code {
+            background: var(--bg);
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-1);
+            font-family: var(--font-mono);
+            font-size: var(--fs-sm);
+            color: var(--brand);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html">CSS Learning Hub</a></h1>
+            <nav>
+                <a href="../index.html">Home</a> › 
+                <a href="../index.html#responsive">Responsive Web Design</a> › 
+                Accessibility & Performance
+            </nav>
+        </div>
+    </header>
+
+    <main class="container example-accessibility">
+        <section>
+            <h1>Accessibility & Performance</h1>
+            <p>Learn how to ensure your responsive designs are accessible to all users and perform well across different devices and network conditions.</p>
+        </section>
+
+        <section>
+            <h2>Live Demo</h2>
+            <div class="demo-area">
+                <h3>Accessibility Examples</h3>
+                <p>These examples demonstrate good and bad accessibility practices:</p>
+                
+                <div class="accessibility-demo">
+                    <h4>Color Contrast</h4>
+                    <div class="contrast-demo">
+                        <div class="demo-box good-contrast">
+                            <h5>Good Contrast</h5>
+                            <p>This text has sufficient contrast against the background for readability.</p>
+                        </div>
+                        <div class="demo-box bad-contrast">
+                            <h5>Bad Contrast</h5>
+                            <p>This text has poor contrast and is hard to read.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accessibility-demo">
+                    <h4>Reduced Motion</h4>
+                    <div class="reduced-motion-demo">
+                        <h5>Respects User Preferences</h5>
+                        <p>This box respects the user's motion preferences. If you have "Reduce motion" enabled in your system settings, the hover animation will be disabled.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Performance Tips</h3>
+                <p>CSS performance best practices for responsive design:</p>
+                
+                <div class="performance-demo">
+                    <h4>CSS Performance</h4>
+                    <ul>
+                        <li><strong>Use efficient selectors:</strong> <code>.class</code> instead of <code>div.class</code></li>
+                        <li><strong>Avoid deep nesting:</strong> Keep selectors shallow</li>
+                        <li><strong>Minimize repaints:</strong> Use <code>transform</code> and <code>opacity</code> for animations</li>
+                        <li><strong>Use CSS custom properties:</strong> For better maintainability</li>
+                        <li><strong>Optimize images:</strong> Use appropriate formats and sizes</li>
+                        <li><strong>Minify CSS:</strong> Remove unnecessary whitespace and comments</li>
+                        <li><strong>Use critical CSS:</strong> Load above-the-fold styles first</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Code</h2>
+            
+            <h3>HTML</h3>
+            <pre class="code-block"><code class="code-html">&lt;div class="contrast-demo"&gt;
+  &lt;div class="demo-box good-contrast"&gt;
+    &lt;h5&gt;Good Contrast&lt;/h5&gt;
+    &lt;p&gt;This text has sufficient contrast...&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="demo-box bad-contrast"&gt;
+    &lt;h5&gt;Bad Contrast&lt;/h5&gt;
+    &lt;p&gt;This text has poor contrast...&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="reduced-motion-demo"&gt;
+  &lt;h5&gt;Respects User Preferences&lt;/h5&gt;
+  &lt;p&gt;This box respects the user's motion preferences...&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+            <h3>CSS</h3>
+            <pre class="code-block"><code class="code-css">/* Good contrast */
+.good-contrast {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Bad contrast */
+.bad-contrast {
+  background: #f0f0f0;
+  color: #999;
+}
+
+/* Reduced motion support */
+.reduced-motion-demo {
+  transition: transform 0.3s ease;
+}
+
+.reduced-motion-demo:hover {
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reduced-motion-demo {
+    transition: none;
+  }
+  
+  .reduced-motion-demo:hover {
+    transform: none;
+  }
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>Notes</h2>
+            <ul>
+                <li><strong>Color contrast:</strong> Ensure sufficient contrast for readability</li>
+                <li><strong>Reduced motion:</strong> Respect user's motion preferences</li>
+                <li><strong>Focus indicators:</strong> Provide clear focus states for keyboard navigation</li>
+                <li><strong>Semantic HTML:</strong> Use proper HTML elements for better accessibility</li>
+                <li><strong>Alt text:</strong> Include descriptive alt text for images</li>
+                <li><strong>Performance:</strong> Optimize CSS for faster loading</li>
+                <li><strong>Testing:</strong> Test with screen readers and keyboard navigation</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                <a href="responsive-layout.html">← Previous: Responsive Layout</a> | 
+                <a href="../index.html">Back to Home</a> | 
+                <a href="common-mistakes.html">Next: Common Mistakes →</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
